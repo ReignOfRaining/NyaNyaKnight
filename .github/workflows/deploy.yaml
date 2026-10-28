@@ -1,0 +1,36 @@
+name: Build and deploy to Pages
+
+on: push
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v7
+            - name: Set up Node.js
+              uses: actions/setup-node@v7
+            - name: Install TypeScript Compiler
+              run: npm i -g typescript
+            - name: Compile TypeScript
+              run: tsc
+              continue-on-error: true
+            - name: Upload Pages Artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: .
+    deploy:
+        name: Deploy to Pages
+        needs: build
+        permissions:
+            pages: write
+            id-token: write
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy Artifact
+              id: deployment
+              uses: actions/deploy-pages@v4
