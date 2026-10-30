@@ -307,7 +307,7 @@ const skillBaseData = {
         name: 'Manya Control',
         maxXp: 100,
         effect: 0.01,
-        description: 'T.A.A. XP',
+        description: 'Meowgic Arcanium XP',
     },
     'Feline Essence': {
         name: 'Feline Essence',
@@ -356,7 +356,7 @@ const skillBaseData = {
         name: 'Angelic Amplification',
         maxXp: 100,
         effect: 0.01,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Enlightened Mind': {
         name: 'Enlightened Mind',
@@ -376,8 +376,8 @@ const skillBaseData = {
         effect: 0.0015,
         description: 'Ability XP',
     },
-    'Void Embodiment': {
-        name: 'Void Embodiment',
+    'Prismatic Embodiment': {
+        name: 'Prismatic Embodiment',
         maxXp: 100,
         effect: 0.0025,
         description: 'Evil Gain',
@@ -424,7 +424,7 @@ const skillBaseData = {
         name: 'Fluff Ascension',
         maxXp: 100,
         effect: 0.01,
-        description: 'Evil Gain',
+        description: 'Cuteness Gain',
     },
     'Weaponized Cuteness': {
         name: 'Weaponized Cuteness',
@@ -442,7 +442,7 @@ const skillBaseData = {
         name: 'Sacred Plushie Ritual',
         maxXp: 100,
         effect: 0.01,
-        description: 'Evil Gain',
+        description: 'Cuteness Gain',
     },
     'Midas Paw': {
         name: 'Midas Paw',
@@ -479,7 +479,7 @@ const skillBaseData = {
         name: 'Yin Yang',
         maxXp: 100,
         effect: 0.02,
-        description: 'Essence + Evil Gain',
+        description: 'Pride + Cuteness Gain',
     },
     'Parallel Universe': {
         name: 'Parallel Universe',
@@ -615,13 +615,13 @@ const itemBaseData = {
         name: 'Angelic Sapphire',
         expense: 28050000000,
         effect: 3,
-        description: 'Void Manipulation XP',
+        description: 'Prismatic Pride XP',
     },
     'Nyanimite Armor': {
         name: 'Nyanimite Armor',
         expense: 197050000000,
         effect: 3,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Etheral Claws': {
         name: 'Etheral Claws',
@@ -633,13 +633,13 @@ const itemBaseData = {
         name: 'Nyanic Wand',
         expense: 1202050000000,
         effect: 3,
-        description: 'Void Manipulation XP',
+        description: 'Prismatic Pride XP',
     },
     'Crown of Hearts': {
         name: 'Crown of Hearts',
         expense: 25002050000000,
         effect: 3,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Robes of Transcendance': {
         name: 'Robes of Transcendance',
@@ -746,7 +746,7 @@ const skillCategories = {
         'Enlightened Mind',
         'Ceaseless Love',
         'Divine Symbiosis',
-        'Void Embodiment',
+        'Prismatic Embodiment',
         'Abyss Manipulation',
     ],
     'Celestial Powers': [
@@ -876,23 +876,23 @@ const tooltips = {
     'Grandmaster':
         'You wield truly unlimited power as a mortal, making you nearly unstoppable. By ruling with a heart of gold, everyone in the Catgirl College obeys your lessons & commands.',
 
-    //The Void (Not the void? Idk... something with angels is better...)
+    //Prismatic Pride
     'Angel':
-        'Corrupted by Void, you are slowly turning into a slave with no free will, just to serve the Void for the rest of eternity... Can you resist it, or will it consume you forever?',
+        'Inspired by prismatic light, you are slowly turning into something new the rest of eternity... Can you resist it, or will it consume you forever?',
     'Guardian Angel':
-        'Each day you are succumbing to the Void more and more, can you hold to your humanity for a bit longer, or will you let it devour you?',
+        'Each day you are discovering more and more of your power, can you hold on to your humanity for a bit longer, or will you continue the path forward?',
     'Archangel':
-        'You become an inquisitive yet putrid creature that siphons life from everything around you.',
+        'You become an inquisitive creature that studies and nutures all life around you.',
     'Seraph':
-        'Screaming into existence, you become a manifestation of the unknowable nothingness that lies beyond.',
+        'A being of unimaginable power, you beging to become aware of what is beyond...',
     'Divine Wanderer':
-        'Damned soul... a shadow of your former self, lingering between realms and consumed by void... can you ever find peace?',
+        'Travel the realm in search of all meaning. Spending your time reflecting upon the many lives you have lived and the mortals you find yourself with.',
     'Angelic Spirit':
-        'There are few who may tread the paths between worlds, these powers grant you an ability to generate fields of void energy that devour all living things.',
+        'There are few who may tread the paths between worlds, these powers grant you an ability to generate fields of divine energy that heal all living things.',
     'Hevanly Gatekeeper':
-        'You gazed into the dark heart of the Void long enough to become one of the most powerful and feared beings, all lesser void creatures are at your command.',
+        'You have taken command of the divine gateway, helping guide lost souls to their next lives.',
     'Guardian of the Hevans':
-        'Creator of the Void, a vast canvas of blackness and nothingness, in which the concept of its existence defies all logic, nothing will escape you.',
+        'Protector of all Angels and mortals, a vast canvas of pure light and nothingness, nothing will escape your divine watch.',
 
     //Galactic Council (End Game Classes)
     'Galactic Wanderer':
@@ -966,14 +966,14 @@ const tooltips = {
     'Absolute Wish':
         'The power to fulfill absolutely any and all wishes without any limitations.',
     'Angelic Amplification':
-        'You surrender yourself to the Void, making it easier to take control of you.',
+        'You surrender yourself to the good, making it easier to take control of you.',
     'Enlightened Mind':
-        'In a trance like state, you feel the Void controlling your thoughts, perception, memories, emotions and personality.',
+        'In a trance like state, you feel the divines healing soul and reflecting upon your thoughts, perception, memories, emotions and personality.',
     'Ceaseless Love':
-        'Never ending torture, you swore to serve the Void for the rest of your existence.',
+        'Learn to understand and love creatures of all shapes, sizes and types and help guide them to their path towards happiness',
     'Divine Symbiosis':
-        'A symbiotic relationship that helps you become one with the Void.',
-    'Void Embodiment':
+        'A symbiotic relationship that helps you become one with the divines.',
+    'Prismatic Embodiment':
         'If thou gaze long into an abyss, the abyss will also gaze into thee.',
     'Abyss Manipulation':
         'Allows you to shape your own reality within the Void itself.',
@@ -1352,7 +1352,7 @@ function getEvilGain() {
     var evilControl = gameData.taskData['Fluff Ascension'];
     var bloodMeditation = gameData.taskData['Sacred Plushie Ritual'];
     var absoluteWish = gameData.taskData['Absolute Wish'];
-    var oblivionEmbodiment = gameData.taskData['Void Embodiment'];
+    var oblivionEmbodiment = gameData.taskData['Prismatic Embodiment'];
     var yingYang = gameData.taskData['Yin Yang'];
     var evil =
         evilControl.getEffect() *
@@ -2733,7 +2733,7 @@ gameData.requirements = {
     'Guardian of the Hevans': new TaskRequirement(
         [getTaskElement('Guardian of the Hevans')],
         [
-            { task: 'Void Embodiment', requirement: 4700 },
+            { task: 'Prismatic Embodiment', requirement: 4700 },
             { task: 'Hevanly Gatekeeper', requirement: 750 },
         ],
     ),
@@ -2915,8 +2915,8 @@ gameData.requirements = {
             { task: 'Angelic Spirit', requirement: 50 },
         ],
     ),
-    'Void Embodiment': new TaskRequirement(
-        [getTaskElement('Void Embodiment')],
+    'Prismatic Embodiment': new TaskRequirement(
+        [getTaskElement('Prismatic Embodiment')],
         [
             { task: 'Adorable Allure', requirement: 4600 },
             { task: 'Hevanly Gatekeeper', requirement: 50 },

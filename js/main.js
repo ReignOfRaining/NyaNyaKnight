@@ -244,7 +244,7 @@ const skillBaseData = {
         name: 'Manya Control',
         maxXp: 100,
         effect: 0.01,
-        description: 'T.A.A. XP',
+        description: 'Meowgic Arcanium XP',
     },
     'Feline Essence': {
         name: 'Feline Essence',
@@ -292,7 +292,7 @@ const skillBaseData = {
         name: 'Angelic Amplification',
         maxXp: 100,
         effect: 0.01,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Enlightened Mind': {
         name: 'Enlightened Mind',
@@ -312,8 +312,8 @@ const skillBaseData = {
         effect: 0.0015,
         description: 'Ability XP',
     },
-    'Void Embodiment': {
-        name: 'Void Embodiment',
+    'Prismatic Embodiment': {
+        name: 'Prismatic Embodiment',
         maxXp: 100,
         effect: 0.0025,
         description: 'Evil Gain',
@@ -358,7 +358,7 @@ const skillBaseData = {
         name: 'Fluff Ascension',
         maxXp: 100,
         effect: 0.01,
-        description: 'Evil Gain',
+        description: 'Cuteness Gain',
     },
     'Weaponized Cuteness': {
         name: 'Weaponized Cuteness',
@@ -376,7 +376,7 @@ const skillBaseData = {
         name: 'Sacred Plushie Ritual',
         maxXp: 100,
         effect: 0.01,
-        description: 'Evil Gain',
+        description: 'Cuteness Gain',
     },
     'Midas Paw': {
         name: 'Midas Paw',
@@ -412,7 +412,7 @@ const skillBaseData = {
         name: 'Yin Yang',
         maxXp: 100,
         effect: 0.02,
-        description: 'Essence + Evil Gain',
+        description: 'Pride + Cuteness Gain',
     },
     'Parallel Universe': {
         name: 'Parallel Universe',
@@ -545,13 +545,13 @@ const itemBaseData = {
         name: 'Angelic Sapphire',
         expense: 28050000000,
         effect: 3,
-        description: 'Void Manipulation XP',
+        description: 'Prismatic Pride XP',
     },
     'Nyanimite Armor': {
         name: 'Nyanimite Armor',
         expense: 197050000000,
         effect: 3,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Etheral Claws': {
         name: 'Etheral Claws',
@@ -563,13 +563,13 @@ const itemBaseData = {
         name: 'Nyanic Wand',
         expense: 1202050000000,
         effect: 3,
-        description: 'Void Manipulation XP',
+        description: 'Prismatic Pride XP',
     },
     'Crown of Hearts': {
         name: 'Crown of Hearts',
         expense: 25002050000000,
         effect: 3,
-        description: 'The Void XP',
+        description: 'Prismatic Pride XP',
     },
     'Robes of Transcendance': {
         name: 'Robes of Transcendance',
@@ -674,7 +674,7 @@ const skillCategories = {
         'Enlightened Mind',
         'Ceaseless Love',
         'Divine Symbiosis',
-        'Void Embodiment',
+        'Prismatic Embodiment',
         'Abyss Manipulation',
     ],
     'Celestial Powers': [
@@ -777,15 +777,15 @@ const tooltips = {
     'Nekomancer': 'Specialize in harnessing temporal zoomy energies that alter the flow of time with supernatural divinations and otherwordly expertise.',
     'College Administrator': 'Spend your days administrating Meowgic Arcanium and investigate the concepts of forbidden catgirl magic. The Administrator receives ludicrous amounts of pay daily.',
     'Grandmaster': 'You wield truly unlimited power as a mortal, making you nearly unstoppable. By ruling with a heart of gold, everyone in the Catgirl College obeys your lessons & commands.',
-    //The Void (Not the void? Idk... something with angels is better...)
-    'Angel': 'Corrupted by Void, you are slowly turning into a slave with no free will, just to serve the Void for the rest of eternity... Can you resist it, or will it consume you forever?',
-    'Guardian Angel': 'Each day you are succumbing to the Void more and more, can you hold to your humanity for a bit longer, or will you let it devour you?',
-    'Archangel': 'You become an inquisitive yet putrid creature that siphons life from everything around you.',
-    'Seraph': 'Screaming into existence, you become a manifestation of the unknowable nothingness that lies beyond.',
-    'Divine Wanderer': 'Damned soul... a shadow of your former self, lingering between realms and consumed by void... can you ever find peace?',
-    'Angelic Spirit': 'There are few who may tread the paths between worlds, these powers grant you an ability to generate fields of void energy that devour all living things.',
-    'Hevanly Gatekeeper': 'You gazed into the dark heart of the Void long enough to become one of the most powerful and feared beings, all lesser void creatures are at your command.',
-    'Guardian of the Hevans': 'Creator of the Void, a vast canvas of blackness and nothingness, in which the concept of its existence defies all logic, nothing will escape you.',
+    //Prismatic Pride
+    'Angel': 'Inspired by prismatic light, you are slowly turning into something new the rest of eternity... Can you resist it, or will it consume you forever?',
+    'Guardian Angel': 'Each day you are discovering more and more of your power, can you hold on to your humanity for a bit longer, or will you continue the path forward?',
+    'Archangel': 'You become an inquisitive creature that studies and nutures all life around you.',
+    'Seraph': 'A being of unimaginable power, you beging to become aware of what is beyond...',
+    'Divine Wanderer': 'Travel the realm in search of all meaning. Spending your time reflecting upon the many lives you have lived and the mortals you find yourself with.',
+    'Angelic Spirit': 'There are few who may tread the paths between worlds, these powers grant you an ability to generate fields of divine energy that heal all living things.',
+    'Hevanly Gatekeeper': 'You have taken command of the divine gateway, helping guide lost souls to their next lives.',
+    'Guardian of the Hevans': 'Protector of all Angels and mortals, a vast canvas of pure light and nothingness, nothing will escape your divine watch.',
     //Galactic Council (End Game Classes)
     'Galactic Wanderer': 'With the powers bestowed upon you by an unknown entity you wander around, visiting places revered and feared in search of answers.',
     'Celestial Observer': 'Extremely powerful being with tremedous telekinetic powers and the ability to rearrange the molecular structure of matter and energy, even up to cosmic scale.',
@@ -822,11 +822,11 @@ const tooltips = {
     'Cutie Incarnate': 'You have became the essence of adorablness. No other creature could ever possibly attain this level of cuteness.',
     //Void Manipulation (Ughhh not a void thing. Why so dark? Anyways... angel something idk yet...)
     'Absolute Wish': 'The power to fulfill absolutely any and all wishes without any limitations.',
-    'Angelic Amplification': 'You surrender yourself to the Void, making it easier to take control of you.',
-    'Enlightened Mind': 'In a trance like state, you feel the Void controlling your thoughts, perception, memories, emotions and personality.',
-    'Ceaseless Love': 'Never ending torture, you swore to serve the Void for the rest of your existence.',
-    'Divine Symbiosis': 'A symbiotic relationship that helps you become one with the Void.',
-    'Void Embodiment': 'If thou gaze long into an abyss, the abyss will also gaze into thee.',
+    'Angelic Amplification': 'You surrender yourself to the good, making it easier to take control of you.',
+    'Enlightened Mind': 'In a trance like state, you feel the divines healing soul and reflecting upon your thoughts, perception, memories, emotions and personality.',
+    'Ceaseless Love': 'Learn to understand and love creatures of all shapes, sizes and types and help guide them to their path towards happiness',
+    'Divine Symbiosis': 'A symbiotic relationship that helps you become one with the divines.',
+    'Prismatic Embodiment': 'If thou gaze long into an abyss, the abyss will also gaze into thee.',
     'Abyss Manipulation': 'Allows you to shape your own reality within the Void itself.',
     //Celestial Powers - Endgame
     'Cosmic Longevity': 'You have seen it all, from the very beginning to the very end.',
@@ -1132,7 +1132,7 @@ function getEvilGain() {
     var evilControl = gameData.taskData['Fluff Ascension'];
     var bloodMeditation = gameData.taskData['Sacred Plushie Ritual'];
     var absoluteWish = gameData.taskData['Absolute Wish'];
-    var oblivionEmbodiment = gameData.taskData['Void Embodiment'];
+    var oblivionEmbodiment = gameData.taskData['Prismatic Embodiment'];
     var yingYang = gameData.taskData['Yin Yang'];
     var evil = evilControl.getEffect() *
         bloodMeditation.getEffect() *
@@ -2212,7 +2212,7 @@ gameData.requirements = {
         { task: 'Angelic Spirit', requirement: 150 },
     ]),
     'Guardian of the Hevans': new TaskRequirement([getTaskElement('Guardian of the Hevans')], [
-        { task: 'Void Embodiment', requirement: 4700 },
+        { task: 'Prismatic Embodiment', requirement: 4700 },
         { task: 'Hevanly Gatekeeper', requirement: 750 },
     ]),
     //Galactic Council
@@ -2291,7 +2291,7 @@ gameData.requirements = {
         { task: 'Ceaseless Love', requirement: 3500 },
         { task: 'Angelic Spirit', requirement: 50 },
     ]),
-    'Void Embodiment': new TaskRequirement([getTaskElement('Void Embodiment')], [
+    'Prismatic Embodiment': new TaskRequirement([getTaskElement('Prismatic Embodiment')], [
         { task: 'Adorable Allure', requirement: 4600 },
         { task: 'Hevanly Gatekeeper', requirement: 50 },
     ]),
