@@ -11,34 +11,34 @@
 </head>
 <body id="body" class="dark">
     <div class="w3-margin"> 
-        <div class="header">
-          <img src="img/logos.png" alt="logos" />
+        <div class="header" style="color:#DC8ADD">
+          <img src="img/logos.png" alt="logos" class="w3-image w3-round" onHover="w3-spin" />
           <h1>Nya Nya Knight~</h1>
         </div>
         <div class="row" style="width: 1220px;">
-                <div id="info" class="panel w3-padding" style="width: 300px; top: 0;">
+                <div id="info" class="w3-panel w3-black w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-indigo w3-black w3-round-xxlarge" style="width: 300px; top: 5px;">
                     <span id="deathText">
-                        <div style="font-size: large; color: red;">Your old age has finally caught up to you...</div>
-                        <div class="sidebar-element" style="color: gray">You have reached the end of your life and begin to feel your purr pulse starting to fade. Quickly, use the <b>Coin of 9 Lives</b> before you pass away!</div>
+                        <div class="sidebar-element" style="font-size: large; color: red;">Your old age has finally caught up to you...</div>
+                        <div class="sidebar-element w3-padding w3-leftbar w3-rightbar w3-bottombar w3-topbar w3-border-red w3-round-xxlarge" style="color: gray">You have reached the end of your life and begin to feel your purr pulse starting to fade. Quickly, use the <b>Coin of 9 Lives</b> before you pass away!</div>
                     </span>
                     
                     <div class="" style="font-size: large">Age <span id="ageDisplay">14</span> Day <span id="dayDisplay">0</span></div>
                     <div class="sidebar-element" style="color: rgb(63, 170, 212)">Lifespan: <span id="lifespanDisplay">70</span> catgirl years</div>
                     
-                    <button id="pauseButton" class="w3-button button sidebar-element" onClick="setPause()">Pause</button>
+                    <button id="pauseButton" class="w3-button w3-green w3-round-xxlarge button sidebar-element" onClick="setPause()">Pause</button>
     
                     <span id="automation" class="inline" style="margin-left: 8px">
                         <span>
-                            <div class="inline">Auto-promote</div>
+                            <div class="inline">Auto-promote:</div>
                             <input type="checkbox" class="inline" id="autoPromote">
                         </span>
                         </br>
                         <span>
-                            <div class="inline">Auto-learn</div>
+                            <div class="inline">Auto-learn:</div>
                             <input type="checkbox" class="inline sidebar-element" id="autoLearn">
                         </span>
                     </span>
-    
+                    <div style="color: goldenrod">Puurse Balance:</div>
                     <div style="font-size: large" id="coinDisplay">
                         <span></span>
                         <span></span>
@@ -46,9 +46,8 @@
                         <span></span>
 						<span></span>
                     </div>
-                    <div style="color: gray">Balance</div>
-    
                     <ul class="sidebar-element" style="padding-left: 20px;">
+                        <div style="color: gainsboro">Budget:</div>
                         <li><span style="color: rgb(9, 160, 230)">Net/day: </span ><b id="signDisplay"></b><span id="netDisplay">
                             <span></span>
                             <span></span>
@@ -77,13 +76,13 @@
                             <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
                             <div class="progress-text name">Task</div>
                         </div>
-                        <div class="sidebar-element" style="color: gray">Current class</div>
+                        <div class="sidebar-element" style="color: gray">Current class:</div>
     
                         <div style="width: 230px" class="small-margin skill progress-bar progressBar">
                             <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
                             <div class="progress-text name">Task</div>              
                         </div>
-                        <div class="sidebar-element" style="color: gray">Current ability</div>
+                        <div class="sidebar-element" style="color: gray">Current ability:</div>
                     </span>
     
                     <div style="font-size: large"><span style="color: rgb(91, 206, 250)">Happiness: </span><span id="happinessDisplay"></span></div>
@@ -120,17 +119,17 @@
                     </span>
                 </div>
                 <div class="column">
-                    <div class="panel w3-margin-left" style="width: 900px; height: 40px;">
-                        <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
-                        <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
-                        <div class="w3-button w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
-                        <div class="w3-button w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Coin</div>
-                        <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
+                    <div class="w3-panel w3-margin-left" style="width: 900px; height: 40px;">
+                        <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
+                        <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
+                        <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
+                        <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Coin</div>
+                        <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
                     </div>
-                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 900px; height: auto; float: right">
+                    <div class="panel w3-margin-left w3-margin-top w3-padding w3-black w3-topbar w3-bottombar w3-rightbar w3-leftbar w3-border-indigo w3-round-xxlarge" style="width: 900px; height: auto; float: right">
                         <template class="headerRowTaskTemplate">
                             <tr>
-                                <th class="category" style="width: 250px">Job</th>
+                                <th class="category " style="width: 250px">Job</th>
                                 <th>Level</th>
                                 <th class="valueType">Value type</th>
                                 <th>Xp/day</th>
@@ -235,7 +234,7 @@
                             </table>
                         </div>
         
-                        <div class="tab" id="rebirth">
+                        <div style="color: #BDBBBB;" class="tab" id="rebirth">
                             <ul>
                                 <li style="margin: 8px;">
                                     On your 25th birthday, you are walking to work when you stumble across a strange-looking coin dangling from a string tied to a tree. 

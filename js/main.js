@@ -734,9 +734,9 @@ const itemCategories = {
 // to all RGB later which is easier for me to program. Maybe... we'll see~ lol
 // On a serious note, if you don't write the hex in properly you will break the header color and it will display nothing~ :3
 const headerRowColors = {
-    'Catgirl Work': 'rgb(228, 162, 236)',
+    'Catgirl Work': '#DC8ADD',
     'The Mewarine Corps': 'rgb(204, 16, 31)',
-    'Meowgic Arcanium': 'rgb(28, 191, 255)',
+    'Meowgic Arcanium': '#99C1F1',
     'Angelic Realm': 'rgb(118, 43, 145)',
     'Galactic Council': 'rgb(213, 192, 16)',
     'Catgirl Fundmentals': 'rgb(228, 162, 236)',
@@ -2011,7 +2011,7 @@ window.addEventListener('keydown', function (e) {
     let span = document.createElement('span');
     let div = document.createElement('div');
     div.classList.add('inline');
-    div.textContent = 'Auto-pause(Void)';
+    div.textContent = 'Auto-pause(Events)';
     span.append(div);
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -2028,6 +2028,14 @@ window.addEventListener('keydown', function (e) {
         if (gameData.days < 365000 &&
             gameData.days + increase > 365000 &&
             autoPause) {
+            gameData.paused = true;
+        }
+        else if (gameData.days < 3650000 &&
+            gameData.days + increase >= 3650000) {
+            gameData.paused = true;
+        }
+        else if (gameData.days < 36500000 &&
+            gameData.days + increase >= 3650000) {
             gameData.paused = true;
         }
         gameData.days += increase;
