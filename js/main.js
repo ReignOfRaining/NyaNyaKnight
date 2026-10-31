@@ -621,7 +621,7 @@ const jobCategories = {
         'College Administrator',
         'Grandmaster',
     ],
-    'Angelic Realm': [
+    'Prismatic Realm': [
         'Angel',
         'Guardian Angel',
         'Archangel',
@@ -668,7 +668,7 @@ const skillCategories = {
         'Zoomy Looper',
         'Cutie Incarnate',
     ],
-    'Angelic Power': [
+    'Prismatic Power': [
         'Absolute Wish',
         'Angelic Amplification',
         'Enlightened Mind',
@@ -734,20 +734,20 @@ const itemCategories = {
 // to all RGB later which is easier for me to program. Maybe... we'll see~ lol
 // On a serious note, if you don't write the hex in properly you will break the header color and it will display nothing~ :3
 const headerRowColors = {
-    'Catgirl Work': '#DC8ADD',
+    'Catgirl Work': 'rgb(220, 138, 221)',
     'The Mewarine Corps': 'rgb(204, 16, 31)',
-    'Meowgic Arcanium': '#99C1F1',
-    'Angelic Realm': 'rgb(118, 43, 145)',
-    'Galactic Council': 'rgb(213, 192, 16)',
-    'Catgirl Fundmentals': 'rgb(228, 162, 236)',
+    'Meowgic Arcanium': 'rgb(22, 130, 173)',
+    'Prismatic Realm': 'rgb(119, 83, 147)',
+    'Galactic Council': 'rgb(190, 164, 13)',
+    'Catgirl Fundmentals': 'rgb(220, 138, 221)',
     'Combat': 'rgb(204, 16, 31)',
-    'Catgirl Magic': 'rgb(28, 191, 255)',
+    'Catgirl Magic': 'rgb(22, 130, 173)',
     'Cutie Magic': 'rgb(179, 124, 209)',
     'Almightiness': 'rgb(24, 210, 217)',
-    'Angelic Power': 'rgb(118, 43, 145)',
-    'Celestial Powers': 'rgb(213, 192, 16)',
-    'Properties': 'rgb(33, 158, 188)',
-    'Items': 'rgb(127, 134, 0)',
+    'Prismatic Power': 'rgb(119, 83, 147)',
+    'Celestial Powers': 'rgb(190, 164, 13)',
+    'Properties': 'rgb(16, 54, 36)',
+    'Items': 'rgb(220, 174, 23)',
 };
 // When you over your mouse over the different classes and items in the game this little word bubble will pop up.
 // This is where you modify those messages on screen. Have with it. I certainly did~ :3
@@ -965,7 +965,7 @@ function addMultipliers() {
                 task.xpMultipliers.push(getBindedItemEffect('Transmatic Gem'));
                 task.xpMultipliers.push(getBindedItemEffect('Observatory'));
             }
-            else if (skillCategories['Angelic Power'].includes(task.name)) {
+            else if (skillCategories['Prismatic Power'].includes(task.name)) {
                 task.xpMultipliers.push(getBindedItemEffect('Angelic Sapphire'));
                 task.xpMultipliers.push(getBindedItemEffect('Nyanic Wand'));
             }
@@ -973,7 +973,7 @@ function addMultipliers() {
                 task.xpMultipliers.push(getBindedTaskEffect('Manya Control'));
                 task.incomeMultipliers.push(getBindedTaskEffect('Coin Transmutation'));
             }
-            else if (jobCategories['Angelic Realm'].includes(task.name)) {
+            else if (jobCategories['Prismatic Realm'].includes(task.name)) {
                 task.xpMultipliers.push(getBindedTaskEffect('Angelic Amplification'));
                 task.xpMultipliers.push(getBindedItemEffect('Nyanimite Armor'));
                 task.xpMultipliers.push(getBindedItemEffect('Crown of Hearts'));
@@ -1005,7 +1005,7 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedItemEffect('Transmatic Gem'));
             task.xpMultipliers.push(getBindedItemEffect('Observatory'));
         }
-        else if (skillCategories['Angelic Power'].includes(task.name)) {
+        else if (skillCategories['Prismatic Power'].includes(task.name)) {
             task.xpMultipliers.push(getBindedItemEffect('Angelic Sapphire'));
             task.xpMultipliers.push(getBindedItemEffect('Nyanic Wand'));
         }
@@ -1013,7 +1013,7 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedTaskEffect('Manya Control'));
             task.incomeMultipliers.push(getBindedTaskEffect('Coin Transmutation'));
         }
-        else if (jobCategories['Angelic Realm'].includes(task.name)) {
+        else if (jobCategories['Prismatic Realm'].includes(task.name)) {
             task.xpMultipliers.push(getBindedTaskEffect('Angelic Amplification'));
             task.xpMultipliers.push(getBindedItemEffect('Nyanimite Armor'));
             task.xpMultipliers.push(getBindedItemEffect('Crown of Hearts'));
@@ -2061,10 +2061,10 @@ gameData.requirements = {
         { task: 'Pondering', requirement: 200 },
     ]),
     'Galactic Council': new AgeRequirement(getElementsByClass('Galactic Council'), [{ requirement: 10000 }]),
-    'Angelic Realm': new AgeRequirement(getElementsByClass('Angelic Realm'), [
+    'Prismatic Realm': new AgeRequirement(getElementsByClass('Prismatic Realm'), [
         { requirement: 1000 },
     ]),
-    'Angelic Power': new AgeRequirement(getElementsByClass('Angelic Power'), [
+    'Prismatic Power': new AgeRequirement(getElementsByClass('Prismatic Power'), [
         { requirement: 1000 },
     ]),
     'Celestial Powers': new AgeRequirement(getElementsByClass('Celestial Powers'), [{ requirement: 10000 }]),

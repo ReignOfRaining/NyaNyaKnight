@@ -692,7 +692,7 @@ const jobCategories = {
         'College Administrator',
         'Grandmaster',
     ],
-    'Angelic Realm': [
+    'Prismatic Realm': [
         'Angel',
         'Guardian Angel',
         'Archangel',
@@ -740,7 +740,7 @@ const skillCategories = {
         'Zoomy Looper',
         'Cutie Incarnate',
     ],
-    'Angelic Power': [
+    'Prismatic Power': [
         'Absolute Wish',
         'Angelic Amplification',
         'Enlightened Mind',
@@ -811,14 +811,14 @@ const headerRowColors = {
     'Catgirl Work': 'rgb(228, 162, 236)',
     'The Mewarine Corps': 'rgb(204, 16, 31)',
     'Meowgic Arcanium': 'rgb(28, 191, 255)',
-    'Angelic Realm': 'rgb(118, 43, 145)',
+    'Prismatic Realm': 'rgb(118, 43, 145)',
     'Galactic Council': 'rgb(213, 192, 16)',
     'Catgirl Fundmentals': 'rgb(228, 162, 236)',
     'Combat': 'rgb(204, 16, 31)',
     'Catgirl Magic': 'rgb(28, 191, 255)',
     'Cutie Magic': 'rgb(179, 124, 209)',
     'Almightiness': 'rgb(24, 210, 217)',
-    'Angelic Power': 'rgb(118, 43, 145)',
+    'Prismatic Power': 'rgb(118, 43, 145)',
     'Celestial Powers': 'rgb(213, 192, 16)',
     'Properties': 'rgb(33, 158, 188)',
     'Items': 'rgb(127, 134, 0)',
@@ -1167,7 +1167,7 @@ function addMultipliers() {
             } else if (skillCategories['Catgirl Magic'].includes(task.name)) {
                 task.xpMultipliers.push(getBindedItemEffect('Transmatic Gem'));
                 task.xpMultipliers.push(getBindedItemEffect('Observatory'));
-            } else if (skillCategories['Angelic Power'].includes(task.name)) {
+            } else if (skillCategories['Prismatic Power'].includes(task.name)) {
                 task.xpMultipliers.push(
                     getBindedItemEffect('Angelic Sapphire'),
                 );
@@ -1177,7 +1177,7 @@ function addMultipliers() {
                 task.incomeMultipliers.push(
                     getBindedTaskEffect('Coin Transmutation'),
                 );
-            } else if (jobCategories['Angelic Realm'].includes(task.name)) {
+            } else if (jobCategories['Prismatic Realm'].includes(task.name)) {
                 task.xpMultipliers.push(
                     getBindedTaskEffect('Angelic Amplification'),
                 );
@@ -1209,7 +1209,7 @@ function addMultipliers() {
         } else if (skillCategories['Catgirl Magic'].includes(task.name)) {
             task.xpMultipliers.push(getBindedItemEffect('Transmatic Gem'));
             task.xpMultipliers.push(getBindedItemEffect('Observatory'));
-        } else if (skillCategories['Angelic Power'].includes(task.name)) {
+        } else if (skillCategories['Prismatic Power'].includes(task.name)) {
             task.xpMultipliers.push(getBindedItemEffect('Angelic Sapphire'));
             task.xpMultipliers.push(getBindedItemEffect('Nyanic Wand'));
         } else if (jobCategories['Meowgic Arcanium'].includes(task.name)) {
@@ -1217,7 +1217,7 @@ function addMultipliers() {
             task.incomeMultipliers.push(
                 getBindedTaskEffect('Coin Transmutation'),
             );
-        } else if (jobCategories['Angelic Realm'].includes(task.name)) {
+        } else if (jobCategories['Prismatic Realm'].includes(task.name)) {
             task.xpMultipliers.push(
                 getBindedTaskEffect('Angelic Amplification'),
             );
@@ -2439,12 +2439,14 @@ gameData.requirements = {
         getElementsByClass('Galactic Council'),
         [{ requirement: 10000 }],
     ),
-    'Angelic Realm': new AgeRequirement(getElementsByClass('Angelic Realm'), [
-        { requirement: 1000 },
-    ]),
-    'Angelic Power': new AgeRequirement(getElementsByClass('Angelic Power'), [
-        { requirement: 1000 },
-    ]),
+    'Prismatic Realm': new AgeRequirement(
+        getElementsByClass('Prismatic Realm'),
+        [{ requirement: 1000 }],
+    ),
+    'Prismatic Power': new AgeRequirement(
+        getElementsByClass('Prismatic Power'),
+        [{ requirement: 1000 }],
+    ),
     'Celestial Powers': new AgeRequirement(
         getElementsByClass('Celestial Powers'),
         [{ requirement: 10000 }],
