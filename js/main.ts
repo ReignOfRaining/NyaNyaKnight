@@ -2496,10 +2496,6 @@ gameData.requirements = {
         [document.getElementById('rebirthNote6')],
         [{ task: 'Eternal Recollection', requirement: 1 }],
     ),
-    'Rebirth note 7': new AgeRequirement(
-        [document.getElementById('rebirthNote7')],
-        [{ requirement: 20000 }],
-    ),
     'Evil info': new EvilRequirement(
         [document.getElementById('evilInfo')],
         [{ requirement: 1 }],
