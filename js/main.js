@@ -1,4 +1,3 @@
-"use strict";
 // Hiya to whomever is reading this. This is a mod for Progress Knight 2.0 that was slop code modified by me~ <3
 // I am going to try to leave notes because the original file didn't explain anything. Since I am using this
 // as a learning experience, I will document what I find here for anyone else who wants to play with the code.
@@ -22,426 +21,426 @@ var gameData = {
     currentProperty: null,
     currentMisc: null,
     settings: {
-        stickySidebar: true,
-    },
+        stickySidebar: true
+    }
 };
 var tempData = {};
 var skillWithLowestMaxXp = null;
-const autoPromoteElement = document.getElementById('autoPromote');
-const autoLearnElement = document.getElementById('autoLearn');
-const updateSpeed = 20;
-const baseLifespan = 365 * 84;
-const baseGameSpeed = 4;
-const permanentUnlocks = [
+var autoPromoteElement = document.getElementById('autoPromote');
+var autoLearnElement = document.getElementById('autoLearn');
+var updateSpeed = 20;
+var baseLifespan = 365 * 84;
+var baseGameSpeed = 4;
+var permanentUnlocks = [
     'Scheduling',
     'Shop',
     'Automation',
     'Quick task display',
 ];
-const jobBaseData = {
+var jobBaseData = {
     'Scrounger': {
         name: 'Scrounger',
         maxXp: 50,
-        income: 5,
+        income: 5
     },
     'Catnip Farmer': { name: 'Catnip Farmer', maxXp: 100, income: 10 },
     'Maid': {
         name: 'Maid',
         maxXp: 200,
-        income: 15,
+        income: 15
     },
     'Catgirl Cafe Waitress': {
         name: 'Catgirl Cafe Waitress',
         maxXp: 400,
-        income: 150,
+        income: 150
     },
     'Sushi Chef': {
         name: 'Sushi Chef',
         maxXp: 800,
-        income: 300,
+        income: 300
     },
     'Business Catgirl': {
         name: 'Business Catgirl',
         maxXp: 1600,
-        income: 500,
+        income: 500
     },
     'Recruit': {
         name: 'Recruit',
         maxXp: 100,
-        income: 15,
+        income: 15
     },
     'Paw Patrol': {
         name: 'Paw Patrol',
         maxXp: 1000,
-        income: 50,
+        income: 50
     },
     'Neko Warrior': {
         name: 'Neko Warrior',
         maxXp: 10000,
-        income: 100,
+        income: 100
     },
     'Catvalry': {
         name: 'Catvalry',
         maxXp: 100000,
-        income: 300,
+        income: 300
     },
     'Nya Nya Knight': {
         name: 'Nya Nya Knight',
         maxXp: 1000000,
-        income: 1000,
+        income: 1000
     },
     'Elite Nya Nya Knight': {
         name: 'Elite Nya Nya Knight',
         maxXp: 7500000,
-        income: 3000,
+        income: 3000
     },
     'Divine Neko Warrior': {
         name: 'Divine Neko Warrior',
         maxXp: 40000000,
-        income: 5000,
+        income: 5000
     },
     'Grand Meowarshal': {
         name: 'Grand Meowarshal',
         maxXp: 150000000,
-        income: 50000,
+        income: 50000
     },
     'Pupil': { name: 'Pupil', maxXp: 100000, income: 100 },
     'Apprentice Neko Mage': {
         name: 'Apprentice Neko Mage',
         maxXp: 1000000,
-        income: 5000,
+        income: 5000
     },
     'Adept Neko Mage': {
         name: 'Adept Neko Mage',
         maxXp: 10000000,
-        income: 10000,
+        income: 10000
     },
     'Master Neko Mage': {
         name: 'Master Neko Mage',
         maxXp: 100000000,
-        income: 70000,
+        income: 70000
     },
     'Arch Neko Mage': {
         name: 'Arch Neko Mage',
         maxXp: 10000000000,
-        income: 350000,
+        income: 350000
     },
     'Nekomancer': { name: 'Nekomancer', maxXp: 2000000000000, income: 1000000 },
     'College Administrator': {
         name: 'College Administrator',
         maxXp: 20000000000000,
-        income: 10000000,
+        income: 10000000
     },
     'Grandmaster': {
         name: 'Grandmaster',
         maxXp: 9000000000000000,
-        income: 60000000,
+        income: 60000000
     },
     'Angel': { name: 'Angel', maxXp: 100000000000000, income: 25000000 },
     'Guardian Angel': {
         name: 'Guardian Angel',
         maxXp: 650000000000000,
-        income: 200000000,
+        income: 200000000
     },
     'Archangel': {
         name: 'Archangel',
         maxXp: 18000000000000000,
-        income: 600000000,
+        income: 600000000
     },
     'Seraph': { name: 'Seraph', maxXp: 18000000000000000, income: 1200000000 },
     'Divine Wanderer': {
         name: 'Divine Wanderer',
         maxXp: 180000000000000000,
-        income: 5000000000,
+        income: 5000000000
     },
     'Angelic Spirit': {
         name: 'Angelic Spirit',
         maxXp: 2600000000000000000,
-        income: 25000000000,
+        income: 25000000000
     },
     'Hevanly Gatekeeper': {
         name: 'Hevanly Gatekeeper',
         maxXp: 28000000000000000000,
-        income: 100000000000,
+        income: 100000000000
     },
     'Guardian of the Hevans': {
         name: 'Guardian of the Hevans',
         maxXp: 400000000000000000000,
-        income: 1000000000000,
+        income: 1000000000000
     },
     'Galactic Wanderer': {
         name: 'Galactic Wanderer',
         maxXp: 55000000000000000000,
-        income: 1000000000000,
+        income: 1000000000000
     },
     'Celestial Observer': {
         name: 'Celestial Observer',
         maxXp: 51000000000000000000,
-        income: 3000000000000,
+        income: 3000000000000
     },
     'Demipotent': {
         name: 'Demipotent',
         maxXp: 500000000000000000000,
-        income: 25000000000000,
+        income: 25000000000000
     },
     'Demigoddess': {
         name: 'Demigoddess',
         maxXp: 50000000000000000000000,
-        income: 215000000000000,
+        income: 215000000000000
     },
     'Catgirl Goddess': {
         name: 'Catgirl Goddess',
         maxXp: 5000000000000000000000000000,
-        income: 25000000000000000,
-    },
+        income: 25000000000000000
+    }
 };
 // This appears to be the skill table. Once again, if you rename these variables make sure that you
 // update them everywhere else or it will also break the game.
-const skillBaseData = {
+var skillBaseData = {
     'Mindfulness': {
         name: 'Mindfulness',
         maxXp: 100,
         effect: 0.01,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Fruitfulness': {
         name: 'Fruitfulness',
         maxXp: 100,
         effect: 0.01,
-        description: 'Class/Meowing XP',
+        description: 'Class/Meowing XP'
     },
     'Meowing': {
         name: 'Meowing',
         maxXp: 100,
         effect: -0.01,
-        description: 'Increased Pay/Discount',
+        description: 'Increased Pay/Discount'
     },
     'Pondering': {
         name: 'Pondering',
         maxXp: 100,
         effect: 0.01,
-        description: 'Happiness',
+        description: 'Happiness'
     },
     'Courage': {
         name: 'Courage',
         maxXp: 100,
         effect: 0.01,
-        description: 'Military Pay',
+        description: 'Military Pay'
     },
     'Battle Mewneuvers': {
         name: 'Battle Mewneuvers',
         maxXp: 100,
         effect: 0.01,
-        description: 'Military XP',
+        description: 'Military XP'
     },
     'Pouncing': {
         name: 'Pouncing',
         maxXp: 100,
         effect: 0.01,
-        description: 'Courage XP',
+        description: 'Courage XP'
     },
     'Manya Control': {
         name: 'Manya Control',
         maxXp: 100,
         effect: 0.01,
-        description: 'Meowgic Arcanium XP',
+        description: 'Meowgic Arcanium XP'
     },
     'Feline Essence': {
         name: 'Feline Essence',
         maxXp: 100,
         effect: 0.01,
-        description: 'Longer Lifespan',
+        description: 'Longer Lifespan'
     },
     'Zoomy Casting': {
         name: 'Zoomy Casting',
         maxXp: 100,
         effect: 0.01,
-        description: 'Gamespeed',
+        description: 'Gamespeed'
     },
     'Astral Body': {
         name: 'Astral Body',
         maxXp: 100,
         effect: 0.0035,
-        description: 'Longer lifespan',
+        description: 'Longer lifespan'
     },
     'Temporal Zoomies': {
         name: 'Temporal Zoomies',
         maxXp: 100,
         effect: 0.025,
-        description: 'Gamespeed',
+        description: 'Gamespeed'
     },
     'Coin Transmutation': {
         name: 'Coin Transmutation',
         maxXp: 100,
         effect: 0.0027,
-        description: 'T.A.A Pay',
+        description: 'T.A.A Pay'
     },
     'Brainwashing': {
         name: 'Brainwashing',
         maxXp: 100,
         effect: -0.01,
-        description: 'Reduced Expenses',
+        description: 'Reduced Expenses'
     },
     'Absolute Wish': {
         name: 'Absolute Wish',
         maxXp: 100,
         effect: 0.005,
-        description: 'Evil Gain',
+        description: 'Evil Gain'
     },
     'Angelic Amplification': {
         name: 'Angelic Amplification',
         maxXp: 100,
         effect: 0.01,
-        description: 'Prismatic Pride XP',
+        description: 'Prismatic Pride XP'
     },
     'Enlightened Mind': {
         name: 'Enlightened Mind',
         maxXp: 100,
         effect: 0.0006,
-        description: 'Reduced Happiness',
+        description: 'Reduced Happiness'
     },
     'Ceaseless Love': {
         name: 'Ceaseless Love',
         maxXp: 100,
         effect: 0.000585,
-        description: 'Longer Lifespan',
+        description: 'Longer Lifespan'
     },
     'Divine Symbiosis': {
         name: 'Divine Symbiosis',
         maxXp: 100,
         effect: 0.0015,
-        description: 'Ability XP',
+        description: 'Ability XP'
     },
     'Prismatic Embodiment': {
         name: 'Prismatic Embodiment',
         maxXp: 100,
         effect: 0.0025,
-        description: 'Evil Gain',
+        description: 'Evil Gain'
     },
     'Abyss Manipulation': {
         name: 'Abyss Manipulation',
         maxXp: 100,
         effect: -0.01,
-        description: 'Reduced Expenses',
+        description: 'Reduced Expenses'
     },
     'Cosmic Longevity': {
         name: 'Cosmic Longevity',
         maxXp: 100,
         effect: 0.0015,
-        description: 'Longer Lifespan',
+        description: 'Longer Lifespan'
     },
     'Eternal Recollection': {
         name: 'Eternal Recollection',
         maxXp: 100,
         effect: 0.00065,
-        description: 'Max Lvl Multiplier',
+        description: 'Max Lvl Multiplier'
     },
     'Spectrial Ruminator': {
         name: 'Spectrial Ruminator',
         maxXp: 100,
         effect: 0.01,
-        description: 'Essence Gain',
+        description: 'Essence Gain'
     },
     'Eternal Tinkerer': {
         name: 'Eternal Tinkerer',
         maxXp: 100,
         effect: -0.01,
-        description: 'Reduced Expenses',
+        description: 'Reduced Expenses'
     },
     'Adorable Allure': {
         name: 'Adorable Allure',
         maxXp: 100,
         effect: 0.01,
-        description: 'All XP',
+        description: 'All XP'
     },
     'Fluff Ascension': {
         name: 'Fluff Ascension',
         maxXp: 100,
         effect: 0.01,
-        description: 'Cuteness Gain',
+        description: 'Cuteness Gain'
     },
     'Weaponized Cuteness': {
         name: 'Weaponized Cuteness',
         maxXp: 100,
         effect: -0.01,
-        description: 'Reduced Expenses',
+        description: 'Reduced Expenses'
     },
     'Unworldly Adorablness': {
         name: 'Unworldly Adorablness',
         maxXp: 100,
         effect: 0.01,
-        description: 'All XP',
+        description: 'All XP'
     },
     'Sacred Plushie Ritual': {
         name: 'Sacred Plushie Ritual',
         maxXp: 100,
         effect: 0.01,
-        description: 'Cuteness Gain',
+        description: 'Cuteness Gain'
     },
     'Midas Paw': {
         name: 'Midas Paw',
         maxXp: 100,
         effect: 0.002,
-        description: 'Class Pay',
+        description: 'Class Pay'
     },
     'Sacred Knowledge': {
         name: 'Sacred Knowledge',
         maxXp: 100,
         effect: 0.003,
-        description: 'Class XP',
+        description: 'Class XP'
     },
     'Celestial Influence': {
         name: 'Celestial Influence',
         maxXp: 100,
         effect: 0.0028,
-        description: 'All XP',
+        description: 'All XP'
     },
     'Zoomy Looper': {
         name: 'Zoomy Looper',
         maxXp: 100,
         effect: 0.001,
-        description: 'Gamespeed',
+        description: 'Gamespeed'
     },
     'Cutie Incarnate': {
         name: 'Cutie Incarnate',
         maxXp: 100,
         effect: 0.0004,
-        description: 'Ability XP',
+        description: 'Ability XP'
     },
     'Yin Yang': {
         name: 'Yin Yang',
         maxXp: 100,
         effect: 0.02,
-        description: 'Pride + Cuteness Gain',
+        description: 'Pride + Cuteness Gain'
     },
     'Parallel Universe': {
         name: 'Parallel Universe',
         maxXp: 100,
         effect: 0.02,
-        description: 'All XP',
+        description: 'All XP'
     },
     'Higher Dimensions': {
         name: 'Higher Dimensions',
         maxXp: 100,
         effect: 0.001,
-        description: 'Longer Lifespan',
+        description: 'Longer Lifespan'
     },
     'Epiphany': {
         name: 'Epiphany',
         maxXp: 100,
         effect: 0.012,
-        description: 'Galactic Council XP',
-    },
+        description: 'Galactic Council XP'
+    }
 };
 // This is the start of the shopping tab page/table thingy. This first part is the "properties" section.
 // ... at the risk of repeating myself too often. Make sure you update everything everywhere~ heh~ <3
-const itemBaseData = {
+var itemBaseData = {
     'Stray': { name: 'Stray', expense: 0, effect: 1 },
     'Tattered Sheets': { name: 'Tattered Sheets', expense: 15, effect: 1.4 },
     'Makeshift Cat Tree': {
         name: 'Makeshift Cat Tree',
         expense: 100,
-        effect: 2,
+        effect: 2
     },
     'Apartment': { name: 'Apartment', expense: 750, effect: 3.5 },
     'House': { name: 'House', expense: 3000, effect: 6 },
@@ -452,147 +451,147 @@ const itemBaseData = {
     'Catgirl City Ruler': {
         name: 'Catgirl City Ruler',
         expense: 1100000000,
-        effect: 500,
+        effect: 500
     },
     'Nyation Ruler': {
         name: 'Nyation Ruler',
         expense: 13000000000,
-        effect: 1200,
+        effect: 1200
     },
     'Yarn Dimension': {
         name: 'Yarn Dimension',
         expense: 49000000000,
-        effect: 5000,
+        effect: 5000
     },
     'Void Realm': { name: 'Void Realm', expense: 121000000000, effect: 15000 },
     'Void Universe': {
         name: 'Void Universe',
         expense: 2000000000000,
-        effect: 30000,
+        effect: 30000
     },
     'Astral Realm': {
         name: 'Astral Realm',
         expense: 160000000000000,
-        effect: 150000,
+        effect: 150000
     },
     'Galactic Throne': {
         name: 'Galactic Throne',
         expense: 5000000000000000,
-        effect: 300000,
+        effect: 300000
     },
     // This is the start of the items table in the shopping tab.
     'Diary': {
         name: 'Diary',
         expense: 10,
         effect: 1.5,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Weighted Yarnballs': {
         name: 'Weighted Yarnballs',
         expense: 50,
         effect: 1.5,
-        description: 'Courage XP',
+        description: 'Courage XP'
     },
     'Personal Assistant': {
         name: 'Personal Assistant',
         expense: 200,
         effect: 2,
-        description: 'Class/Meowing XP',
+        description: 'Class/Meowing XP'
     },
     'Steel Claws': {
         name: 'Steel Claws',
         expense: 1000,
         effect: 2,
-        description: 'Military XP',
+        description: 'Military XP'
     },
     'Catgirl Maid': {
         name: 'Catgirl Maid',
         expense: 7500,
         effect: 1.5,
-        description: 'Happiness',
+        description: 'Happiness'
     },
     'Transmatic Gem': {
         name: 'Transmatic Gem',
         expense: 50000,
         effect: 3,
-        description: 'Catgirl Magic XP',
+        description: 'Catgirl Magic XP'
     },
     'Fancy Chevrette': {
         name: 'Fancy Chevrette',
         expense: 1000000,
         effect: 2,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Library': {
         name: 'Library',
         expense: 10000000,
         effect: 2,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Observatory': {
         name: 'Observatory',
         expense: 140000000,
         effect: 5,
-        description: 'Catgirl Magic XP',
+        description: 'Catgirl Magic XP'
     },
     "Mind's Eye": {
         name: "Mind's Eye",
         expense: 3250000000,
         effect: 10,
-        description: 'Catgirl Fundamentals XP',
+        description: 'Catgirl Fundamentals XP'
     },
     'Angelic Sapphire': {
         name: 'Angelic Sapphire',
         expense: 28050000000,
         effect: 3,
-        description: 'Prismatic Pride XP',
+        description: 'Prismatic Pride XP'
     },
     'Nyanimite Armor': {
         name: 'Nyanimite Armor',
         expense: 197050000000,
         effect: 3,
-        description: 'Prismatic Pride XP',
+        description: 'Prismatic Pride XP'
     },
     'Etheral Claws': {
         name: 'Etheral Claws',
         expense: 502050000000,
         effect: 3,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Nyanic Wand': {
         name: 'Nyanic Wand',
         expense: 1202050000000,
         effect: 3,
-        description: 'Prismatic Pride XP',
+        description: 'Prismatic Pride XP'
     },
     'Crown of Hearts': {
         name: 'Crown of Hearts',
         expense: 25002050000000,
         effect: 3,
-        description: 'Prismatic Pride XP',
+        description: 'Prismatic Pride XP'
     },
     'Robes of Transcendance': {
         name: 'Robes of Transcendance',
         expense: 300002050000000,
         effect: 5,
-        description: 'Galactic Council XP',
+        description: 'Galactic Council XP'
     },
     'Prismatic Heart': {
         name: 'Prismatic Heart',
         expense: 18500002050000000,
         effect: 3,
-        description: 'Skill XP',
+        description: 'Skill XP'
     },
     'Throne of the Divines': {
         name: 'Throne of the Divines',
         expense: 200500002050000000,
         effect: 5,
-        description: 'Happiness',
-    },
+        description: 'Happiness'
+    }
 };
 // Here is where the game organizes the classes and skills. So you write them in order. If you want the order
 // to be different I think that is possible. I'll mess with it later and update this note.
-const jobCategories = {
+var jobCategories = {
     'Catgirl Work': [
         'Scrounger',
         'Catnip Farmer',
@@ -637,9 +636,9 @@ const jobCategories = {
         'Demipotent',
         'Demigoddess',
         'Catgirl Goddess',
-    ],
+    ]
 };
-const skillCategories = {
+var skillCategories = {
     'Catgirl Fundmentals': [
         'Mindfulness',
         'Fruitfulness',
@@ -688,9 +687,9 @@ const skillCategories = {
         'Parallel Universe',
         'Higher Dimensions',
         'Epiphany',
-    ],
+    ]
 };
-const itemCategories = {
+var itemCategories = {
     Properties: [
         'Stray',
         'Tattered Sheets',
@@ -728,12 +727,12 @@ const itemCategories = {
         'Robes of Transcendance',
         'Prismatic Heart',
         'Throne of the Divines',
-    ],
+    ]
 };
 // Here is where you update the header row colors. Its does wierd things when you use hex colors. I will probably update this
 // to all RGB later which is easier for me to program. Maybe... we'll see~ lol
 // On a serious note, if you don't write the hex in properly you will break the header color and it will display nothing~ :3
-const headerRowColors = {
+var headerRowColors = {
     'Catgirl Work': 'rgb(228, 162, 236)',
     'The Mewarine Corps': 'rgb(204, 16, 31)',
     'Meowgic Arcanium': 'rgb(28, 191, 255)',
@@ -747,11 +746,11 @@ const headerRowColors = {
     'Angelic Power': 'rgb(118, 43, 145)',
     'Celestial Powers': 'rgb(213, 192, 16)',
     'Properties': 'rgb(33, 158, 188)',
-    'Items': 'rgb(127, 134, 0)',
+    'Items': 'rgb(127, 134, 0)'
 };
 // When you over your mouse over the different classes and items in the game this little word bubble will pop up.
 // This is where you modify those messages on screen. Have with it. I certainly did~ :3
-const tooltips = {
+var tooltips = {
     //Common work (Catgirl Work)
     'Scrounger': 'Meow, beg, and plead your way through the streets, hoping some kind soul will spare a few copper coins. Life is harsh, your stomach is almost always empty, and each passing day feels like another desperate struggle for survival. Its not much of a life, but at least youre still breathing.',
     'Catnip Farmer': 'Spend your days tending the fields, planting and harvesting catnip for the local catfolk. The work is simple, honest, and occasionally exhausting, but theres something comforting about watching your crops grow. The pay isnt particularly impressive but a warm meal and a roof over your head are certainly better than begging on the streets',
@@ -873,13 +872,13 @@ const tooltips = {
     'Crown of Hearts': 'Purest version of void created material, a teaspoon of it is as heavy as a small planet. ',
     'Robes of Transcendance': 'The most powerful and essential equipment of any Celestial. Acts as a source of infinite power.',
     'Prismatic Heart': 'From the time the universe was born. Can create another small universes.',
-    'Throne of the Divines': 'Came into existance long before our universe was created, this strange looking object with no shape radiates unlimited energy.',
+    'Throne of the Divines': 'Came into existance long before our universe was created, this strange looking object with no shape radiates unlimited energy.'
 };
 // Okay so after staring at this for a long time and thinking really hard I have managed to achieve 2 things.
 // Smoke coming out of my ears and that this is likely where the code calculates all its multipliers and stuffs.
 // What I do know for sure is that messing with this stuff is a sure fire way to break everything. So far
 // I only messed with changing basic variables here so far.
-const units = [
+var units = [
     '',
     'k',
     'M',
@@ -903,7 +902,7 @@ const units = [
     'Tg',
     'OMG',
 ];
-const jobTabButton = document.getElementById('jobTabButton');
+var jobTabButton = document.getElementById('jobTabButton');
 function getBaseLog(x, y) {
     return Math.log(y) / Math.log(x);
 }
@@ -916,7 +915,7 @@ function getBindedItemEffect(itemName) {
     return item.getEffect.bind(item);
 }
 function addMultipliers() {
-    for (let taskName in gameData.taskData) {
+    for (var taskName in gameData.taskData) {
         var task = gameData.taskData[taskName];
         task.xpMultipliers = [];
         if (task instanceof Job)
@@ -1032,7 +1031,7 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedItemEffect("Mind's Eye"));
         }
     }
-    for (const itemName in gameData.itemData) {
+    for (var itemName in gameData.itemData) {
         var item = gameData.itemData[itemName];
         item.expenseMultipliers = [];
         item.expenseMultipliers.push(getBindedTaskEffect('Meowing'));
@@ -1125,7 +1124,7 @@ function applyMultipliers(value, multipliers) {
     return finalValue;
 }
 function applySpeed(value) {
-    let finalValue = (value * getGameSpeed()) / updateSpeed;
+    var finalValue = (value * getGameSpeed()) / updateSpeed;
     return finalValue;
 }
 function getEvilGain() {
@@ -1168,7 +1167,8 @@ function applyExpenses() {
 function getExpense() {
     var expense = 0;
     expense += gameData.currentProperty.getExpense();
-    for (let misc of gameData.currentMisc) {
+    for (var _i = 0, _a = gameData.currentMisc; _i < _a.length; _i++) {
+        var misc = _a[_i];
         expense += misc.getExpense();
     }
     return expense;
@@ -1188,7 +1188,8 @@ function setTab(element, selectedTab) {
     });
     document.getElementById(selectedTab).style.display = 'block';
     var tabButtons = document.getElementsByClassName('tabButton');
-    for (let tabButton of tabButtons) {
+    for (var _i = 0, tabButtons_1 = tabButtons; _i < tabButtons_1.length; _i++) {
+        var tabButton = tabButtons_1[_i];
         tabButton.classList.remove('w3-blue-gray');
     }
     element.classList.add('w3-blue-gray');
@@ -1212,7 +1213,7 @@ function setProperty(propertyName) {
 function setMisc(miscName) {
     var misc = gameData.itemData[miscName];
     if (gameData.currentMisc.includes(misc)) {
-        for (let i = 0; i < gameData.currentMisc.length; i++) {
+        for (var i = 0; i < gameData.currentMisc.length; i++) {
             if (gameData.currentMisc[i] == misc) {
                 gameData.currentMisc.splice(i, 1);
             }
@@ -1223,7 +1224,7 @@ function setMisc(miscName) {
     }
 }
 function createData(data, baseData) {
-    for (const key in baseData) {
+    for (var key in baseData) {
         var entity = baseData[key];
         createEntity(data, entity);
     }
@@ -1291,19 +1292,23 @@ function createAllRows(categoryType, tableId) {
             : 'headerRowTaskTemplate')[0],
         row: document.getElementsByClassName(categoryType == itemCategories
             ? 'rowItemTemplate'
-            : 'rowTaskTemplate')[0],
+            : 'rowTaskTemplate')[0]
     };
     var table = document.getElementById(tableId);
-    for (const categoryName in categoryType) {
-        var headerRow = createHeaderRow(templates, categoryType, categoryName);
+    var _loop_1 = function (categoryName) {
+        headerRow = createHeaderRow(templates, categoryType, categoryName);
         table.appendChild(headerRow);
-        var category = categoryType[categoryName];
+        category = categoryType[categoryName];
         category.forEach(function (name) {
             var row = createRow(templates, name, categoryName, categoryType);
             table.appendChild(row);
         });
-        var requiredRow = createRequiredRow(categoryName);
+        requiredRow = createRequiredRow(categoryName);
         table.append(requiredRow);
+    };
+    var headerRow, category, requiredRow;
+    for (var categoryName in categoryType) {
+        _loop_1(categoryName);
     }
 }
 function updateQuickTaskDisplay(taskType) {
@@ -1317,13 +1322,14 @@ function updateQuickTaskDisplay(taskType) {
 }
 function updateRequiredRows(data, categoryType) {
     var requiredRows = document.getElementsByClassName('requiredRow');
-    for (let requiredRow of requiredRows) {
+    for (var _i = 0, requiredRows_1 = requiredRows; _i < requiredRows_1.length; _i++) {
+        var requiredRow = requiredRows_1[_i];
         var nextEntity = null;
         var category = categoryType[requiredRow.id];
         if (category == null) {
             continue;
         }
-        for (let i = 0; i < category.length; i++) {
+        for (var i = 0; i < category.length; i++) {
             var entityName = category[i];
             if (i >= category.length - 1)
                 break;
@@ -1339,7 +1345,7 @@ function updateRequiredRows(data, categoryType) {
                 break;
             }
             var nextEntityName = category[nextIndex];
-            let nextEntityRequirements = gameData.requirements[nextEntityName];
+            var nextEntityRequirements = gameData.requirements[nextEntityName];
             if (!nextEntityRequirements.isCompleted()) {
                 nextEntity = data[nextEntityName];
                 break;
@@ -1374,7 +1380,8 @@ function updateRequiredRows(data, categoryType) {
                 }
                 else {
                     levelElement.classList.remove('hiddenTask');
-                    for (requirement of requirements) {
+                    for (var _a = 0, requirements_1 = requirements; _a < requirements_1.length; _a++) {
+                        requirement = requirements_1[_a];
                         var task = gameData.taskData[requirement.task];
                         if (task.level >= requirement.requirement)
                             continue;
@@ -1399,7 +1406,7 @@ function updateRequiredRows(data, categoryType) {
     }
 }
 function updateTaskRows() {
-    for (let key in gameData.taskData) {
+    for (var key in gameData.taskData) {
         var task = gameData.taskData[key];
         var row = document.getElementById('row ' + task.name);
         row.getElementsByClassName('level')[0].textContent = task.level;
@@ -1440,7 +1447,7 @@ function setStickySidebar(sticky) {
     info.style.position = sticky ? 'sticky' : 'initial';
 }
 function updateItemRows() {
-    for (let key in gameData.itemData) {
+    for (var key in gameData.itemData) {
         var item = gameData.itemData[key];
         var row = document.getElementById('row ' + item.name);
         var button = row.getElementsByClassName('button')[0];
@@ -1460,7 +1467,7 @@ function updateItemRows() {
     }
 }
 function updateHeaderRows(categories) {
-    for (let categoryName in categories) {
+    for (var categoryName in categories) {
         var className = removeSpaces(categoryName);
         var headerRow = document.getElementsByClassName(className)[0];
         var maxLevelElement = headerRow.getElementsByClassName('maxLevel')[0];
@@ -1526,10 +1533,11 @@ function getNet() {
     return net;
 }
 function hideEntities() {
-    for (let key in gameData.requirements) {
+    for (var key in gameData.requirements) {
         var requirement = gameData.requirements[key];
         var completed = requirement.isCompleted();
-        for (let element of requirement.elements) {
+        for (var _i = 0, _a = requirement.elements; _i < _a.length; _i++) {
+            var element = _a[_i];
             if (completed) {
                 element.classList.remove('hidden');
             }
@@ -1540,7 +1548,8 @@ function hideEntities() {
     }
 }
 function createItemData(baseData) {
-    for (var item of baseData) {
+    for (var _i = 0, baseData_1 = baseData; _i < baseData_1.length; _i++) {
+        var item = baseData_1[_i];
         gameData.itemData[item.name] =
             'happiness' in item ? new Property(task) : new Misc(task);
         gameData.itemData[item.name].id = 'item ' + item.name;
@@ -1566,7 +1575,7 @@ function daysToYears(days) {
     return years;
 }
 function getCategoryFromEntityName(categoryType, entityName) {
-    for (let categoryName in categoryType) {
+    for (var categoryName in categoryType) {
         var category = categoryType[categoryName];
         if (category.includes(entityName)) {
             return category;
@@ -1631,7 +1640,7 @@ function setSkillWithLowestMaxXp() {
         skillWithLowestMaxXp = gameData.taskData['Mindfulness'];
         return;
     }
-    enabledSkills.sort((lhs, rhs) => {
+    enabledSkills.sort(function (lhs, rhs) {
         return (lhs.getMaxXp() / lhs.getXpGain() - rhs.getMaxXp() / rhs.getXpGain());
     });
     var skillName = enabledSkills[0].name;
@@ -1639,14 +1648,14 @@ function setSkillWithLowestMaxXp() {
 }
 function getKeyOfLowestValueFromDict(dict) {
     var values = [];
-    for (let key in dict) {
+    for (var key in dict) {
         var value = dict[key];
         values.push(value);
     }
     values.sort(function (a, b) {
         return a - b;
     });
-    for (let key in dict) {
+    for (var key in dict) {
         var value = dict[key];
         if (value == values[0]) {
             return key;
@@ -1670,7 +1679,8 @@ function increaseDays() {
     var increase = applySpeed(1);
     gameData.days += increase;
 }
-function format(number, decimals = 1) {
+function format(number, decimals) {
+    if (decimals === void 0) { decimals = 1; }
     // what tier? (determines SI symbol)
     var tier = (Math.log10(number) / 3) | 0;
     // if zero, we don't need a suffix
@@ -1691,11 +1701,12 @@ function formatCoins(coins, element) {
         p: '#79b9c7',
         g: '#E5C100',
         s: '#a8a8a8',
-        c: '#a15c2f',
+        c: '#a15c2f'
     };
     var leftOver = coins;
     var i = 0;
-    for (var tier of tiers) {
+    for (var _i = 0, tiers_1 = tiers; _i < tiers_1.length; _i++) {
+        var tier = tiers_1[_i];
         var x = Math.floor(leftOver / Math.pow(10, (tiers.length - i) * 2));
         var leftOver = Math.floor(leftOver - x * Math.pow(10, (tiers.length - i) * 2));
         var text = coins > 1e9 && i > 0 ? '' : format(String(x), 2) + tier + ' ';
@@ -1743,7 +1754,7 @@ function rebirthTwo() {
     gameData.rebirthTwoCount += 1;
     gameData.evil += getEvilGain();
     rebirthReset();
-    for (let taskName in gameData.taskData) {
+    for (var taskName in gameData.taskData) {
         var task = gameData.taskData[taskName];
         task.maxLevel = 0;
     }
@@ -1772,14 +1783,14 @@ function rebirthReset() {
     gameData.currentSkill = gameData.taskData['Mindfulness'];
     gameData.currentProperty = gameData.itemData['Stray'];
     gameData.currentMisc = [];
-    for (let taskName in gameData.taskData) {
+    for (var taskName in gameData.taskData) {
         var task = gameData.taskData[taskName];
         if (task.level > task.maxLevel)
             task.maxLevel = task.level;
         task.level = 0;
         task.xp = 0;
     }
-    for (let key in gameData.requirements) {
+    for (var key in gameData.requirements) {
         var requirement = gameData.requirements[key];
         if (requirement.completed && permanentUnlocks.includes(key))
             continue;
@@ -1813,7 +1824,7 @@ function isAlive() {
     return condition;
 }
 function assignMethods() {
-    for (let key in gameData.taskData) {
+    for (var key in gameData.taskData) {
         var task = gameData.taskData[key];
         if (task.baseData.income) {
             task.baseData = jobBaseData[task.name];
@@ -1825,13 +1836,13 @@ function assignMethods() {
         }
         gameData.taskData[key] = task;
     }
-    for (let key in gameData.itemData) {
+    for (var key in gameData.itemData) {
         var item = gameData.itemData[key];
         item.baseData = itemBaseData[item.name];
         item = Object.assign(new Item(itemBaseData[item.name]), item);
         gameData.itemData[key] = item;
     }
-    for (let key in gameData.requirements) {
+    for (var key in gameData.requirements) {
         var requirement = gameData.requirements[key];
         if (requirement.type == 'task') {
             requirement = Object.assign(new TaskRequirement(requirement.elements, requirement.requirements), requirement);
@@ -1857,13 +1868,14 @@ function assignMethods() {
     gameData.currentSkill = gameData.taskData[gameData.currentSkill.name];
     gameData.currentProperty = gameData.itemData[gameData.currentProperty.name];
     var newArray = [];
-    for (let misc of gameData.currentMisc) {
+    for (var _i = 0, _a = gameData.currentMisc; _i < _a.length; _i++) {
+        var misc = _a[_i];
         newArray.push(gameData.itemData[misc.name]);
     }
     gameData.currentMisc = newArray;
 }
 function replaceSaveDict(dict, saveDict) {
-    for (let key in dict) {
+    for (var key in dict) {
         if (!(key in saveDict)) {
             saveDict[key] = dict[key];
         }
@@ -1873,7 +1885,7 @@ function replaceSaveDict(dict, saveDict) {
             }
         }
     }
-    for (let key in saveDict) {
+    for (var key in saveDict) {
         if (!(key in dict)) {
             delete saveDict[key];
         }
@@ -1936,7 +1948,7 @@ function changeTab(direction) {
     var tabs = Array.prototype.slice.call(document.getElementsByClassName('tab'));
     var tabButtons = Array.prototype.slice.call(document.getElementsByClassName('tabButton'));
     var currentTab = 0;
-    for (let i in tabs) {
+    for (var i in tabs) {
         if (!tabs[i].style.display.includes('none'))
             currentTab = i * 1;
     }
@@ -1953,21 +1965,21 @@ function changeTab(direction) {
     button = tabButtons[targetTab];
     setTab(button, tabs[targetTab].id);
 }
-let loadouts = {};
+var loadouts = {};
 function saveLoadout(num) {
     loadouts[num] = {
         job: gameData.currentJob.name,
         skill: gameData.currentSkill.name,
         property: gameData.currentProperty.name,
-        misc: [],
+        misc: []
     };
-    for (let i in gameData.currentMisc)
+    for (var i in gameData.currentMisc)
         loadouts[num].misc.push(gameData.currentMisc[i].name);
 }
 function loadLoadout(num) {
     if (num in loadouts) {
         gameData.currentMisc = [];
-        for (let i in loadouts[num].misc)
+        for (var i in loadouts[num].misc)
             setMisc(loadouts[num].misc[i]);
         setProperty(loadouts[num].property);
         setTask(loadouts[num].skill);
@@ -2008,12 +2020,12 @@ window.addEventListener('keydown', function (e) {
 });
 // This is the auto-pause function. I want to tinker with this more in the future.
 (function () {
-    let span = document.createElement('span');
-    let div = document.createElement('div');
+    var span = document.createElement('span');
+    var div = document.createElement('div');
     div.classList.add('inline');
     div.textContent = 'Auto-pause(Void)';
     span.append(div);
-    let checkbox = document.createElement('input');
+    var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('inline');
     checkbox.id = 'autoPause';
@@ -2022,7 +2034,7 @@ window.addEventListener('keydown', function (e) {
         .querySelector('span#automation')
         .prepend(document.createElement('br'));
     document.querySelector('span#automation').prepend(span);
-    increaseDays = () => {
+    increaseDays = function () {
         var increase = applySpeed(1);
         var autoPause = document.getElementById('autoPause').checked;
         if (gameData.days < 365000 &&
@@ -2068,7 +2080,7 @@ gameData.requirements = {
     ]),
     'Shop': new CoinRequirement([document.getElementById('shopTabButton')], [
         {
-            requirement: gameData.itemData['Tattered Sheets'].getExpense() * 50,
+            requirement: gameData.itemData['Tattered Sheets'].getExpense() * 50
         },
     ]),
     'Rebirth tab': new AgeRequirement([document.getElementById('rebirthTabButton')], [{ requirement: 25 }]),
@@ -2079,6 +2091,7 @@ gameData.requirements = {
     'Rebirth note 4': new AgeRequirement([document.getElementById('rebirthNote4')], [{ requirement: 1000 }]),
     'Rebirth note 5': new AgeRequirement([document.getElementById('rebirthNote5')], [{ requirement: 10000 }]),
     'Rebirth note 6': new TaskRequirement([document.getElementById('rebirthNote6')], [{ task: 'Eternal Recollection', requirement: 1 }]),
+    'Rebirth note 7': new AgeRequirement([document.getElementById('rebirthNote7')], [{ requirement: 20000 }]),
     'Evil info': new EvilRequirement([document.getElementById('evilInfo')], [{ requirement: 1 }]),
     'Essence info': new EssenceRequirement([document.getElementById('essenceInfo')], [{ requirement: 1 }]),
     'Time warping info': new TaskRequirement([document.getElementById('timeWarping')], [{ task: 'Adept Neko Mage', requirement: 10 }]),
@@ -2326,7 +2339,7 @@ gameData.requirements = {
     'Tattered Sheets': new CoinRequirement([getItemElement('Tattered Sheets')], [{ requirement: 0 }]),
     'Makeshift Cat Tree': new CoinRequirement([getItemElement('Makeshift Cat Tree')], [
         {
-            requirement: gameData.itemData['Makeshift Cat Tree'].getExpense() * 100,
+            requirement: gameData.itemData['Makeshift Cat Tree'].getExpense() * 100
         },
     ]),
     'Apartment': new CoinRequirement([getItemElement('Apartment')], [{ requirement: gameData.itemData['Apartment'].getExpense() * 100 }]),
@@ -2337,53 +2350,53 @@ gameData.requirements = {
     'Town Ruler': new CoinRequirement([getItemElement('Town Ruler')], [{ requirement: gameData.itemData['Town Ruler'].getExpense() * 100 }]),
     'Catgirl City Ruler': new CoinRequirement([getItemElement('Catgirl City Ruler')], [
         {
-            requirement: gameData.itemData['Catgirl City Ruler'].getExpense() * 100,
+            requirement: gameData.itemData['Catgirl City Ruler'].getExpense() * 100
         },
     ]),
     'Nyation Ruler': new CoinRequirement([getItemElement('Nyation Ruler')], [
         {
-            requirement: gameData.itemData['Nyation Ruler'].getExpense() * 100,
+            requirement: gameData.itemData['Nyation Ruler'].getExpense() * 100
         },
     ]),
     'Yarn Dimension': new CoinRequirement([getItemElement('Yarn Dimension')], [
         {
-            requirement: gameData.itemData['Yarn Dimension'].getExpense() * 100,
+            requirement: gameData.itemData['Yarn Dimension'].getExpense() * 100
         },
     ]),
     'Void Realm': new CoinRequirement([getItemElement('Void Realm')], [{ requirement: gameData.itemData['Void Realm'].getExpense() * 100 }]),
     'Void Universe': new CoinRequirement([getItemElement('Void Universe')], [
         {
-            requirement: gameData.itemData['Void Universe'].getExpense() * 100,
+            requirement: gameData.itemData['Void Universe'].getExpense() * 100
         },
     ]),
     'Astral Realm': new CoinRequirement([getItemElement('Astral Realm')], [{ requirement: gameData.itemData['Astral Realm'].getExpense() * 100 }]),
     'Galactic Throne': new CoinRequirement([getItemElement('Galactic Throne')], [
         {
-            requirement: gameData.itemData['Galactic Throne'].getExpense() * 100,
+            requirement: gameData.itemData['Galactic Throne'].getExpense() * 100
         },
     ]),
     //Misc
     'Diary': new CoinRequirement([getItemElement('Diary')], [{ requirement: 0 }]),
     'Weighted Yarnballs': new CoinRequirement([getItemElement('Weighted Yarnballs')], [
         {
-            requirement: gameData.itemData['Weighted Yarnballs'].getExpense() * 100,
+            requirement: gameData.itemData['Weighted Yarnballs'].getExpense() * 100
         },
     ]),
     'Personal Assistant': new CoinRequirement([getItemElement('Personal Assistant')], [
         {
-            requirement: gameData.itemData['Personal Assistant'].getExpense() * 100,
+            requirement: gameData.itemData['Personal Assistant'].getExpense() * 100
         },
     ]),
     'Steel Claws': new CoinRequirement([getItemElement('Steel Claws')], [{ requirement: gameData.itemData['Steel Claws'].getExpense() * 100 }]),
     'Catgirl Maid': new CoinRequirement([getItemElement('Catgirl Maid')], [{ requirement: gameData.itemData['Catgirl Maid'].getExpense() * 100 }]),
     'Transmatic Gem': new CoinRequirement([getItemElement('Transmatic Gem')], [
         {
-            requirement: gameData.itemData['Transmatic Gem'].getExpense() * 100,
+            requirement: gameData.itemData['Transmatic Gem'].getExpense() * 100
         },
     ]),
     'Fancy Chevrette': new CoinRequirement([getItemElement('Fancy Chevrette')], [
         {
-            requirement: gameData.itemData['Fancy Chevrette'].getExpense() * 100,
+            requirement: gameData.itemData['Fancy Chevrette'].getExpense() * 100
         },
     ]),
     'Library': new CoinRequirement([getItemElement('Library')], [{ requirement: gameData.itemData['Library'].getExpense() * 100 }]),
@@ -2391,45 +2404,45 @@ gameData.requirements = {
     "Mind's Eye": new CoinRequirement([getItemElement("Mind's Eye")], [{ requirement: gameData.itemData["Mind's Eye"].getExpense() * 100 }]),
     'Angelic Sapphire': new CoinRequirement([getItemElement('Angelic Sapphire')], [
         {
-            requirement: gameData.itemData['Angelic Sapphire'].getExpense() * 100,
+            requirement: gameData.itemData['Angelic Sapphire'].getExpense() * 100
         },
     ]),
     'Nyanimite Armor': new CoinRequirement([getItemElement('Nyanimite Armor')], [
         {
-            requirement: gameData.itemData['Nyanimite Armor'].getExpense() * 100,
+            requirement: gameData.itemData['Nyanimite Armor'].getExpense() * 100
         },
     ]),
     'Etheral Claws': new CoinRequirement([getItemElement('Etheral Claws')], [
         {
-            requirement: gameData.itemData['Etheral Claws'].getExpense() * 100,
+            requirement: gameData.itemData['Etheral Claws'].getExpense() * 100
         },
     ]),
     'Nyanic Wand': new CoinRequirement([getItemElement('Nyanic Wand')], [{ requirement: gameData.itemData['Nyanic Wand'].getExpense() * 100 }]),
     'Crown of Hearts': new CoinRequirement([getItemElement('Crown of Hearts')], [
         {
-            requirement: gameData.itemData['Crown of Hearts'].getExpense() * 100,
+            requirement: gameData.itemData['Crown of Hearts'].getExpense() * 100
         },
     ]),
     'Robes of Transcendance': new CoinRequirement([getItemElement('Robes of Transcendance')], [
         {
             requirement: gameData.itemData['Robes of Transcendance'].getExpense() *
-                100,
+                100
         },
     ]),
     'Prismatic Heart': new CoinRequirement([getItemElement('Prismatic Heart')], [
         {
-            requirement: gameData.itemData['Prismatic Heart'].getExpense() * 100,
+            requirement: gameData.itemData['Prismatic Heart'].getExpense() * 100
         },
     ]),
     'Throne of the Divines': new CoinRequirement([getItemElement('Throne of the Divines')], [
         {
             requirement: gameData.itemData['Throne of the Divines'].getExpense() *
-                100,
+                100
         },
-    ]),
+    ])
 };
 tempData['requirements'] = {};
-for (let key in gameData.requirements) {
+for (var key in gameData.requirements) {
     var requirement = gameData.requirements[key];
     tempData['requirements'][key] = requirement;
 }
