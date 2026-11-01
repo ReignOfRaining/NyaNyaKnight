@@ -208,13 +208,13 @@ const skillBaseData = {
         name: 'Fruitfulness',
         maxXp: 100,
         effect: 0.01,
-        description: 'Class/Meowing XP',
+        description: 'Class XP',
     },
     'Meowing': {
         name: 'Meowing',
         maxXp: 100,
         effect: -0.01,
-        description: 'Increased Pay/Discount',
+        description: 'Increased Discount',
     },
     'Pondering': {
         name: 'Pondering',
@@ -274,10 +274,10 @@ const skillBaseData = {
         name: 'Coin Transmutation',
         maxXp: 100,
         effect: 0.0027,
-        description: 'T.A.A Pay',
+        description: 'Meowgic Arcanium Pay',
     },
-    'Brainwashing': {
-        name: 'Brainwashing',
+    'Bowdlerizing': {
+        name: 'Bowdlerizing',
         maxXp: 100,
         effect: -0.01,
         description: 'Reduced Expenses',
@@ -654,7 +654,7 @@ const skillCategories = {
         'Astral Body',
         'Temporal Zoomies',
         'Coin Transmutation',
-        'Brainwashing',
+        'Bowdlerizing',
     ],
     'Cutie Magic': [
         'Adorable Allure',
@@ -808,7 +808,7 @@ const tooltips = {
     'Astral Body': 'Harness ethereal catgirl energies to extend your lifespan to incomprehensible lengths. Perhaps immortality is finally within reach...',
     'Temporal Zoomies': 'Run so incredibly fast that you create a pocket dimension where centuries pass in mere seconds.',
     'Coin Transmutation': 'Unlock forbidden transmutation techniques reserved for the highest-ranking members of the Catgirl Magic College, converting magical energy into additional funds.',
-    'Brainwashing': 'Manipulate the thoughts and actions of others, bending their will to your own through forbidden mental techniques.',
+    'Bowdlerizing': 'As grandmaster you get to say what expenses are published in the Arcaniums budget, but more importantly, what doesnt get published~',
     //Dark magic - Evil Required (The code will refer to this as "evil" but mine is Cuteness)
     'Adorable Allure': 'Surround yourself with an irresistible aura of cuteness, persuading others to teach you any job or skill with ease.',
     'Fluff Ascension': 'Use magic to make your fur impossibly soft and fluffy, increasing the cuteness you retain between rebirths.',
@@ -945,12 +945,10 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedTaskEffect('Cutie Incarnate'));
         }
         if (jobCategories['Catgirl Work'].includes(task.name)) {
-            task.incomeMultipliers.push(getBindedTaskEffect('Meowing'));
             task.xpMultipliers.push(getBindedTaskEffect('Fruitfulness'));
             task.xpMultipliers.push(getBindedItemEffect('Personal Assistant'));
         }
         else if (task.name == 'Meowing') {
-            task.xpMultipliers.push(getBindedTaskEffect('Fruitfulness'));
             task.xpMultipliers.push(getBindedItemEffect('Diary'));
             if (jobCategories['The Mewarine Corps'].includes(task.name)) {
                 task.incomeMultipliers.push(getBindedTaskEffect('Courage'));
@@ -1037,7 +1035,7 @@ function addMultipliers() {
         item.expenseMultipliers = [];
         item.expenseMultipliers.push(getBindedTaskEffect('Meowing'));
         item.expenseMultipliers.push(getBindedTaskEffect('Weaponized Cuteness'));
-        item.expenseMultipliers.push(getBindedTaskEffect('Brainwashing'));
+        item.expenseMultipliers.push(getBindedTaskEffect('Bowdlerizing'));
         item.expenseMultipliers.push(getBindedTaskEffect('Abyss Manipulation'));
         item.expenseMultipliers.push(getBindedTaskEffect('Eternal Tinkerer'));
     }
@@ -1059,7 +1057,7 @@ function setCustomEffects() {
         }
         return multiplier;
     };
-    var brainwashing = gameData.taskData['Brainwashing'];
+    var brainwashing = gameData.taskData['Bowdlerizing'];
     brainwashing.getEffect = function () {
         var multiplier = 1 - getBaseLog(7, brainwashing.level + 2) / 10;
         if (multiplier < 0.1) {
@@ -2200,7 +2198,7 @@ gameData.requirements = {
     'Angel': new AgeRequirement([getTaskElement('Angel')], [{ task: 'Scrounger', requirement: 1000 }]),
     'Guardian Angel': new TaskRequirement([getTaskElement('Guardian Angel')], [{ task: 'Angel', requirement: 30 }]),
     'Archangel': new TaskRequirement([getTaskElement('Archangel')], [
-        { task: 'Brainwashing', requirement: 3000 },
+        { task: 'Bowdlerizing', requirement: 3000 },
         { task: 'Guardian Angel', requirement: 200 },
     ]),
     'Seraph': new TaskRequirement([getTaskElement('Seraph')], [
@@ -2269,7 +2267,7 @@ gameData.requirements = {
         { task: 'Manya Control', requirement: 2500 },
         { task: 'College Administrator', requirement: 100 },
     ]),
-    'Brainwashing': new TaskRequirement([getTaskElement('Brainwashing')], [{ task: 'Grandmaster', requirement: 100 }]),
+    'Bowdlerizing': new TaskRequirement([getTaskElement('Bowdlerizing')], [{ task: 'Grandmaster', requirement: 100 }]),
     //Dark magic
     'Adorable Allure': new EvilRequirement([getTaskElement('Adorable Allure')], [{ requirement: 1 }]),
     'Fluff Ascension': new EvilRequirement([getTaskElement('Fluff Ascension')], [{ requirement: 1 }]),

@@ -1,5 +1,5 @@
 body {
-    background-color: #1B1622;
+    background-color: #f3f3f3;
 }
 
 .w3-bar-item {
@@ -76,13 +76,14 @@ button:focus {
   
 .tooltip .tooltipText {
     visibility: hidden;
-    width: 540px;
-    background-color: black;
-    color: #fff;
+    width: 650px;
+    background-color: #1B1622;
+    color: #A5A4A6;
     font-family: 'Times New Roman', Times, serif;
-    font-size: x-large;
+    font-size: large;
     text-align: center;
     border-style: double;
+    border-spacing: 1px;
     border-color: rgb(145, 57, 162);
     border-radius: 5px;
     padding: 10px 0;
@@ -94,12 +95,12 @@ button:focus {
     left: 105%;
 
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 1s;
 }
   
 .tooltip:hover .tooltipText {
     visibility: visible;
-    opacity: 1.0;
+    opacity: 0.9;
 }
 
 .sidebar-element {

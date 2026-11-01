@@ -339,8 +339,8 @@ const skillBaseData = {
         effect: 0.0027,
         description: 'T.A.A Pay',
     },
-    'Brainwashing': {
-        name: 'Brainwashing',
+    'Bowdlerizing': {
+        name: 'Bowdlerizing',
         maxXp: 100,
         effect: -0.01,
         description: 'Reduced Expenses',
@@ -726,7 +726,7 @@ const skillCategories = {
         'Astral Body',
         'Temporal Zoomies',
         'Coin Transmutation',
-        'Brainwashing',
+        'Bowdlerizing',
     ],
     'Cutie Magic': [
         'Adorable Allure',
@@ -937,7 +937,7 @@ const tooltips = {
         'Run so incredibly fast that you create a pocket dimension where centuries pass in mere seconds.',
     'Coin Transmutation':
         'Unlock forbidden transmutation techniques reserved for the highest-ranking members of the Catgirl Magic College, converting magical energy into additional funds.',
-    'Brainwashing':
+    'Bowdlerizing':
         'Manipulate the thoughts and actions of others, bending their will to your own through forbidden mental techniques.',
 
     //Dark magic - Evil Required (The code will refer to this as "evil" but mine is Cuteness)
@@ -1244,7 +1244,7 @@ function addMultipliers() {
         item.expenseMultipliers.push(
             getBindedTaskEffect('Weaponized Cuteness'),
         );
-        item.expenseMultipliers.push(getBindedTaskEffect('Brainwashing'));
+        item.expenseMultipliers.push(getBindedTaskEffect('Bowdlerizing'));
         item.expenseMultipliers.push(getBindedTaskEffect('Abyss Manipulation'));
         item.expenseMultipliers.push(getBindedTaskEffect('Eternal Tinkerer'));
     }
@@ -1269,7 +1269,7 @@ function setCustomEffects() {
         return multiplier;
     };
 
-    var brainwashing = gameData.taskData['Brainwashing'];
+    var brainwashing = gameData.taskData['Bowdlerizing'];
     brainwashing.getEffect = function () {
         var multiplier = 1 - getBaseLog(7, brainwashing.level + 2) / 10;
         if (multiplier < 0.1) {
@@ -2702,7 +2702,7 @@ gameData.requirements = {
     'Archangel': new TaskRequirement(
         [getTaskElement('Archangel')],
         [
-            { task: 'Brainwashing', requirement: 3000 },
+            { task: 'Bowdlerizing', requirement: 3000 },
             { task: 'Guardian Angel', requirement: 200 },
         ],
     ),
@@ -2839,8 +2839,8 @@ gameData.requirements = {
             { task: 'College Administrator', requirement: 100 },
         ],
     ),
-    'Brainwashing': new TaskRequirement(
-        [getTaskElement('Brainwashing')],
+    'Bowdlerizing': new TaskRequirement(
+        [getTaskElement('Bowdlerizing')],
         [{ task: 'Grandmaster', requirement: 100 }],
     ),
 
