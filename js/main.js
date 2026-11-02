@@ -2005,40 +2005,57 @@ window.addEventListener('keydown', function (e) {
             !document.getElementById('autoPromote').checked;
 });
 // This is the auto-pause function. I want to tinker with this more in the future.
-(function () {
-    let span = document.createElement('span');
-    let div = document.createElement('div');
-    div.classList.add('inline');
-    div.textContent = 'Auto-Pause (Events): ';
-    span.append(div);
-    let checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.classList.add('inline');
-    checkbox.id = 'autoPause';
-    span.append(checkbox);
-    document
-        .querySelector('span#automation')
-        .prepend(document.createElement('br'));
-    document.querySelector('span#automation').prepend(span);
-    increaseDays = () => {
-        var increase = applySpeed(1);
-        var autoPause = document.getElementById('autoPause').checked;
-        if (gameData.days < 365000 &&
-            gameData.days + increase > 365000 &&
-            autoPause) {
+increaseDays = () => {
+    var increase = applySpeed(1);
+    var autoPause = document.getElementById('autoPause').checked;
+    var autoBuy = document.getElementById('autoBuy').checked;
+
+    if (autoBuy && !gameData.paused) {
+        doAutoBuy();
+    }
+    const m200Years = 73000;
+    const m1000Years = 365000;
+    const m10000Years = 3650000;
+    const m20000Years = 7300000;
+
+    if (autoPause && !gameData.paused) {
+        if (
+            (gameData.days < m200Years && gameData.days + increase >= m200Years) ||
+            (gameData.days < m1000Years && gameData.days + increase >= m1000Years) ||
+            (gameData.days < m10000Years && gameData.days + increase >= m10000Years) ||
+            (gameData.days < m20000Years && gameData.days + increase >= m20000Years)
+        ) {
             gameData.paused = true;
         }
-        else if (gameData.days < 3650000 &&
-            gameData.days + increase >= 3650000) {
-            gameData.paused = true;
+    }
+    gameData.days += increase;
+};
+function doAutoBuy() {
+    if (typeof getIncome === "function" && typeof getExpense === "function") {
+        if (getIncome() - getExpense() <= 0) {
+            return;
         }
-        else if (gameData.days < 36500000 &&
-            gameData.days + increase >= 3650000) {
-            gameData.paused = true;
+    }
+    for (const key in itemBaseData) {
+        let item = gameData.itemData[key];
+        if (!item) continue;
+        let alreadyOwned = gameData.currentMisc.some(misc => misc.name === key);
+        let cost = item.getExpense() * 100;
+        let itemExpense = item.getExpense();
+        let hasEnoughCoins = gameData.coins >= cost + (itemExpense * 5);
+        let netIncomeSafe = true;
+        if (typeof getIncome === "function" && typeof getExpense === "function") {
+            netIncomeSafe = (getIncome() - (getExpense() + itemExpense)) > 0;
         }
-        gameData.days += increase;
-    };
-})();
+        if (!alreadyOwned && hasEnoughCoins && netIncomeSafe) {
+            gameData.currentMisc.push(item);
+            if (typeof updateUI === "function") {
+                updateUI();
+            }
+            return;
+        }
+    }
+}
 //Init
 // What I think it does is check that you met the requirements to
 // upgrade to another class or make progress. I'm still figuring it out myself...

@@ -27,27 +27,24 @@
                     
                     <button id="pauseButton" class="w3-button w3-green w3-round-xxlarge button sidebar-element" onClick="setPause()">Pause</button>
                 </br>
-                    <span id="automation" class="inline" style="margin-left: 8px">
-                        <span>
-                           <!-- <div class="inline">Auto-Pause(Broken):</div>
-                            <input type="checkbox" class="inline" id="autoPause"> -->
-                        </span>
-                        <span>
-                        <span>
-                            <div class="inline">Auto-Promote:</div>
-                            <input type="checkbox" class="inline" id="autoPromote">
-                        </span>
-                        </br>
-                        <span>
-                            <div class="inline">Auto-Learn:</div>
-                            <input type="checkbox" class="inline sidebar-element" id="autoLearn">
-                        </span>
-                        </br>
-                        <span>
-                            <!-- <div class="inline">Auto-Buy:(Broken)</div>
-                            <input type="checkbox" class="inline sidebar-element" id="autoBuy"> -->
-                        </span>
-                    </span>
+                <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
+                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                    <span>Auto-Pause (Events):</span>
+                    <input type="checkbox" id="autoPause">
+                    </label>
+                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                    <span>Auto-Promote:</span>
+                    <input type="checkbox" id="autoPromote">
+                    </label>
+                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                    <span>Auto-Learn:</span>
+                    <input type="checkbox" class="sidebar-element" id="autoLearn">
+                    </label>
+                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; position: relative; top: -8px;">
+                    <span>Auto-Buy:</span>
+                    <input type="checkbox" class="sidebar-element" id="autoBuy">
+                    </label>
+                </div>
                     <div style="color: goldenrod">Puurse Balance:</div>
                     <div style="font-size: large" id="coinDisplay">
                         <span></span>
@@ -107,29 +104,15 @@
                         <div style="font-size: large"><span style="color: rgb(24, 210, 217)">Essence: </span><span id="essenceDisplay"></span></div>
                         <div style="color: gray" class="sidebar-element">Affects Almightiness XP gain</div>
                     </span>
-                    
-    
-                    <!--
-                    <span id="scheduling">
-                        <div style="font-size: large">Scheduling</div>
-                        <div style="color: gray" class="sidebar-element">Schedule time to jobs/skills</div>
-                        <span style="height: 30px"> 
-                            <p style="width: 15px">Jobs</br>(32%)</p>
-                            <input id="schedulingSlider" class="slider" type="range" min="0" max="100" value="0">
-                            <p style="width: 5px">Skills</br>(68%)</p>
-                        </span>
-                    </span>
-                    -->
-    
                     <span id="timeWarping">
                         <div style="font-size: large"><span style="color: rgb(204, 34, 219)">Zoomie Power: </span><span id="timeWarpingDisplay"></span></div>
                         <div style="color: gray">Affects game speed</div>
                         <div style="color: red">Catgirl Magic & Abilities can increase its multiplier!</div>
-                        <button id="timeWarpingButton" class="w3-button button sidebar-element" style="margin-top: 5px; width:150px" onClick="setTimeWarping()">Enable warp</button>
+                        <button id="timeWarpingButton" class="w3-button button sidebar-element w3-round-xlarge" style="margin-top: 5px; width:150px" onClick="setTimeWarping()">Enable warp</button>
                     </span>
                 </div>
                 <div class="column">
-                    <div class="w3-panel w3-margin-left" style="width: 900px; height: 40px;">
+                    <div class="w3-panel" style="width: 900px; height: 40px;">
                         <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
                         <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
                         <div class="w3-button w3-indigo w3-round-xxlarge w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
