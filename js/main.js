@@ -2009,7 +2009,7 @@ window.addEventListener('keydown', function (e) {
     let span = document.createElement('span');
     let div = document.createElement('div');
     div.classList.add('inline');
-    div.textContent = 'Auto-pause(Events)';
+    div.textContent = 'Auto-Pause (Events): ';
     span.append(div);
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
