@@ -27,25 +27,20 @@
                     
                     <button id="pauseButton" class="w3-button w3-green w3-round-xxlarge button sidebar-element" onClick="setPause()">Pause</button>
                 </br>
-                <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
-                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
-                    <span>Auto-Pause (Events):</span>
-                    <input type="checkbox" id="autoPause">
-                    </label>
-                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
-                    <span>Auto-Promote:</span>
-                    <input type="checkbox" id="autoPromote">
-                    </label>
-                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
-                    <span>Auto-Learn:</span>
-                    <input type="checkbox" class="sidebar-element" id="autoLearn">
-                    </label>
-                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; position: relative; top: -8px;">
-                    <span>Auto-Buy:</span>
-                    <input type="checkbox" class="sidebar-element" id="autoBuy">
-                    </label>
-                </div>
-                    <div style="color: goldenrod">Puurse Balance:</div>
+                <span id="quickTaskDisplay">
+                        <div style="width: 230px" class="small-margin inline job progress-bar progressBar">
+                            <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
+                            <div class="progress-text name">Task</div>
+                        </div>
+                        <div class="sidebar-element" style="color: gray">Current class:</div>
+    
+                        <div style="width: 230px" class="small-margin skill progress-bar progressBar">
+                            <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
+                            <div class="progress-text name">Task</div>              
+                        </div>
+                        <div class="sidebar-element" style="color: gray">Current ability:</div>
+                    </span>
+                <div style="color: goldenrod">Puurse Balance:</div>
                     <div style="font-size: large" id="coinDisplay">
                         <span></span>
                         <span></span>
@@ -77,21 +72,6 @@
 							<span></span>
                         </span></li>
                     </ul>
-    
-                    <span id="quickTaskDisplay">
-                        <div style="width: 230px" class="small-margin inline job progress-bar progressBar">
-                            <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
-                            <div class="progress-text name">Task</div>
-                        </div>
-                        <div class="sidebar-element" style="color: gray">Current class:</div>
-    
-                        <div style="width: 230px" class="small-margin skill progress-bar progressBar">
-                            <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
-                            <div class="progress-text name">Task</div>              
-                        </div>
-                        <div class="sidebar-element" style="color: gray">Current ability:</div>
-                    </span>
-    
                     <div style="font-size: large"><span style="color: rgb(91, 206, 250)">Happiness: </span><span id="happinessDisplay"></span></div>
                     <div style="color: gray" class="sidebar-element">Affects all XP gain</div>
     
@@ -461,47 +441,44 @@
                         </div>
         
                         <div class="tab" id="settings">
-                            
-                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-cyan w3-black w3-round-xlarge">
-                            <h2>NyaNya Knight~ 1.0</h4>
-                            <h3>by Rain</h5>
-                            <h5>This game was lovingly soft forked from Progress Knight 2.0</h5>
-                            <h5></h5>
-                            <h2>About:</h5>
-                            <h5>NyaNya Knight is an incrimental progress game about becoming a legendary catgirl.</h5>
-                            <h5>Game is a work in progress. Expect many bugs~<3</h5>
-                            <h5></h5>
-                            <h5>Sharing is an act of love! Fork this game and make it your own!</h5>
-                            <h5><a href="https://github.com/ReignOfRaining/NyaNyaKnight">Github Repository</a></h5>
-                        </div>
-                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-green w3-black w3-round-xlarge">
-                            <h2>Import/Export Save String:</h2>
-                            <h5>Clicking Export will produce a string. Copy the string into a text editor and save it in a safe location.</h5>
-                            <h5>To load the game, paste the string into the field and click Import~ <3</h5>
-                            <button class="w3-button button" onClick="importGameData()">Import</button>
-                            <button class="w3-button button" onClick="exportGameData()">Export</button>
-                                <form style="margin-top: 16px"> 
-                                    <input id="importExportBox" type="text" style="width:300px; height:30px"></input>
-                                    </form>
-                        </div>
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-grey w3-black w3-round-xlarge">
                             <h2>Settings:</h2>
-                            <h5>Sticky sidebar:</h5>
-                                <input id="settingsStickySidebar" type="checkbox" onclick="setStickySidebar(this.checked)" />
-                            <h5>Light Mode/Dark Mode:</h5>
-                            <button class="w3-button button" onClick="setLightDarkMode()">Toggle</button>
-                            <h5>Color Schemes are a work in progress!</h5>
+                            <h4>Automation:</h4>
+                            <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
+                                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                    <span>Auto-Pause (Events):</span>
+                                    <input type="checkbox" id="autoPause">
+                                    </label>
+                                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                    <span>Auto-Promote:</span>
+                                    <input type="checkbox" id="autoPromote">
+                                    </label>
+                                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                    <span>Auto-Learn:</span>
+                                    <input type="checkbox" class="sidebar-element" id="autoLearn">
+                                    </label>
+                                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; position: relative; top: -8px;">
+                                    <span>Auto-Buy:</span>
+                                    <input type="checkbox" class="sidebar-element" id="autoBuy">
+                                    </label>
+                            </div>
+                            <h4>Sticky sidebar:</h4>
+                                <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;"></div>
+                                    <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                    <span>Check to Enable:</span>
+                                    <input type="checkbox" id="settingsStickySidebar" onclick="setStickySidebar(this.checked)" />
+                                    </label>
+                            <h5>Color Settings:</h5>
+                            <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
+                                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                <span>Toggle Light/Dark Mode:</span>
+                                <button class="w3-button button" onClick="setLightDarkMode()">Toggle</button>
+                                </label>
+                                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                <span>Color schemes are a work in progress. Please provide feedback~ :3</span>
+                                </label>
                         </div>
-                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-blue w3-black w3-round-xlarge">
-                            <h2>Join the Rain's Refuge discord community!</h2>
-                            <a href="https://discord.gg/5JNdxkwxnn" target="_blank">
-                            <img src="img/rain.png"  width="100" height="100"></img>
-                            </a>
-                            <h2>Join the Progress Knight discord community!</h2>
-                            <a href="https://discord.gg/fTRS4pHGka" target="_blank">
-                            <img src="img/progressknight.png" width="100" height="100"></img>
-                            </a>
-                        </div>
+                        </div>    
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-brown w3-black w3-round-xlarge">
                         <h2>Shortcuts</h2>
                             <div style="margin-bottom: 8px;">
@@ -514,7 +491,39 @@
 								L - Auto-learn
                                 </br>
                                 Save profile with: Alt + "1-3" / Load profile with "1-3"							
+                            </div>
                         </div>
+                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-green w3-black w3-round-xlarge">
+                            <h2>Import/Export Save String:</h2>
+                            <h5>Clicking Export will produce a string. Copy the string into a text editor and save it in a safe location.</h5>
+                            <h5>To load the game, paste the string into the field and click Import~ <3</h5>
+                            <button class="w3-button button" onClick="importGameData()">Import</button>
+                            <button class="w3-button button" onClick="exportGameData()">Export</button>
+                                <form style="margin-top: 16px"> 
+                                    <input id="importExportBox" type="text" style="width:300px; height:30px"></input>
+                                    </form>
+                        </div>
+                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-cyan w3-black w3-round-xlarge">
+                            <h2>NyaNya Knight~ 1.0</h4>
+                            <h3>by Rain</h5>
+                            <h5>This game was lovingly soft forked from Progress Knight 2.0</h5>
+                            <h5></h5>
+                            <h2>About:</h5>
+                            <h5>NyaNya Knight is an incrimental progress game about becoming a legendary catgirl.</h5>
+                            <h5>Game is a work in progress. Expect many bugs~<3</h5>
+                            <h5></h5>
+                            <h5>Sharing is an act of love! Fork this game and make it your own!</h5>
+                            <h5><a href="https://github.com/ReignOfRaining/NyaNyaKnight">Github Repository</a></h5>
+                        </div>
+                        <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-blue w3-black w3-round-xlarge">
+                            <h2>Join the Rain's Refuge discord community!</h2>
+                            <a href="https://discord.gg/5JNdxkwxnn" target="_blank">
+                            <img src="img/rain.png"  width="100" height="100"></img>
+                            </a>
+                            <h2>Join the Progress Knight discord community!</h2>
+                            <a href="https://discord.gg/fTRS4pHGka" target="_blank">
+                            <img src="img/progressknight.png" width="100" height="100"></img>
+                            </a>
                         </div>
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-red w3-pale-red w3-round-xlarge">
                             <h2>DANGER ZONE:</h2>
