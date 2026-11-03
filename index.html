@@ -28,17 +28,17 @@
                     <button id="pauseButton" class="w3-button w3-green w3-round-xxlarge button sidebar-element" onClick="setPause()">Pause</button>
                 </br>
                 <span id="quickTaskDisplay">
+                        <div class="sidebar-element" style="color: #DC8ADD">Current class:</div>
                         <div style="width: 230px" class="small-margin inline job progress-bar progressBar">
                             <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
                             <div class="progress-text name">Task</div>
                         </div>
-                        <div class="sidebar-element" style="color: gray">Current class:</div>
-    
+                        <div class="sidebar-element" style="color: #DC8ADD">Current ability:</div>
                         <div style="width: 230px" class="small-margin skill progress-bar progressBar">
                             <div class="progress-fill progressFill" style="background-color:rgb(232, 144, 237)"></div>
                             <div class="progress-text name">Task</div>              
                         </div>
-                        <div class="sidebar-element" style="color: gray">Current ability:</div>
+                        
                     </span>
                 <div style="color: goldenrod">Puurse Balance:</div>
                     <div style="font-size: large" id="coinDisplay">
@@ -77,6 +77,7 @@
     
                     <span id="evilInfo">
                         <div style="font-size: large"><span style="color: rgb(179, 124, 209)">Cuteness: </span><span id="evilDisplay"></span></div>
+                        <div style="color:rgb(179, 124, 209)" class="sidebar-element"><span id="evilGainDisplay"></span> Cuteness on Rebirth</div>
                         <div style="color: gray" class="sidebar-element">Affects cutie magic XP gain</div>
                     </span>
                     
@@ -89,6 +90,16 @@
                         <div style="color: gray">Affects game speed</div>
                         <div style="color: red">Catgirl Magic & Abilities can increase its multiplier!</div>
                         <button id="timeWarpingButton" class="w3-button button sidebar-element w3-round-xlarge" style="margin-top: 5px; width:150px" onClick="setTimeWarping()">Enable warp</button>
+                    </span>
+                    <div id="rebirthnote2" class="sidebar-element w3-large">Quick Rebirth:</div>
+                    <span id="rebirthNote2">
+                        <button class="w3-button button w3-round-xlarge" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Paw the Heart~ <3</button>
+                    </span>
+                    <span id="rebirthNote3"">
+                        <button class="w3-button button w3-round-xlarge" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Admit Cuteness~ :3</button>
+                        <br>
+                        <div style="font-size: normal; color:rgb(179, 124, 209)">
+                        </div>
                     </span>
                 </div>
                 <div class="column">

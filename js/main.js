@@ -4,7 +4,6 @@
 // as a learning experience, I will document what I find here for anyone else who wants to play with the code.
 //
 // uh just a heads up, I kinda don't know what I am doing or what I am messing with so keep that in mind~ :3
-// Test
 var gameData = {
     taskData: {},
     itemData: {},
@@ -366,8 +365,8 @@ const skillBaseData = {
         effect: -0.01,
         description: 'Reduced Expenses',
     },
-    'Unworldly Adorablness': {
-        name: 'Unworldly Adorablness',
+    'Divine Adorablness': {
+        name: 'Divine Adorablness',
         maxXp: 100,
         effect: 0.01,
         description: 'All XP',
@@ -660,7 +659,7 @@ const skillCategories = {
         'Adorable Allure',
         'Fluff Ascension',
         'Weaponized Cuteness',
-        'Unworldly Adorablness',
+        'Divine Adorablness',
         'Sacred Plushie Ritual',
         'Midas Paw',
         'Sacred Knowledge',
@@ -813,7 +812,7 @@ const tooltips = {
     'Adorable Allure': 'Surround yourself with an irresistible aura of cuteness, persuading others to teach you any job or skill with ease.',
     'Fluff Ascension': 'Use magic to make your fur impossibly soft and fluffy, increasing the cuteness you retain between rebirths.',
     'Weaponized Cuteness': 'Unleash an overwhelmingly adorable aura that leaves merchants unable to resist giving you generous discounts.',
-    'Unworldly Adorablness': 'Your ordinary catgirl body can no longer contain your adorable potential. Transform into something beyond imagination, gaining additional experience for all your skills.',
+    'Divine Adorablness': 'Your ordinary catgirl body can no longer contain your adorable potential. Transform into something beyond imagination, gaining additional experience for all your skills.',
     'Sacred Plushie Ritual': 'Perform an ancient ritual with your beloved plushies, harnessing their mysterious energy to gain more cuteness between rebirths.',
     'Midas Paw': 'Infuse your paws with Cutie Magic, causing coins to magically multiply whenever they touch your hands and increasing your earnings from work.',
     'Sacred Knowledge': 'Uncover forbidden knowledge sealed within an ancient ruin and exploit its forgotten secrets for your own extraordinary benefit.',
@@ -924,7 +923,7 @@ function addMultipliers() {
         task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task));
         task.xpMultipliers.push(getHappiness);
         task.xpMultipliers.push(getBindedTaskEffect('Adorable Allure'));
-        task.xpMultipliers.push(getBindedTaskEffect('Unworldly Adorablness'));
+        task.xpMultipliers.push(getBindedTaskEffect('Divine Adorablness'));
         task.xpMultipliers.push(getBindedTaskEffect('Celestial Influence'));
         task.xpMultipliers.push(getBindedTaskEffect('Parallel Universe'));
         if (task instanceof Job) {
@@ -2289,7 +2288,7 @@ gameData.requirements = {
     'Adorable Allure': new EvilRequirement([getTaskElement('Adorable Allure')], [{ requirement: 1 }]),
     'Fluff Ascension': new EvilRequirement([getTaskElement('Fluff Ascension')], [{ requirement: 1 }]),
     'Weaponized Cuteness': new EvilRequirement([getTaskElement('Weaponized Cuteness')], [{ requirement: 1 }]),
-    'Unworldly Adorablness': new EvilRequirement([getTaskElement('Unworldly Adorablness')], [{ requirement: 20 }]),
+    'Divine Adorablness': new EvilRequirement([getTaskElement('Divine Adorablness')], [{ requirement: 20 }]),
     'Sacred Plushie Ritual': new EvilRequirement([getTaskElement('Sacred Plushie Ritual')], [{ requirement: 50 }]),
     'Midas Paw': new EvilRequirement([getTaskElement('Midas Paw')], [{ requirement: 500 }]),
     'Sacred Knowledge': new EvilRequirement([getTaskElement('Sacred Knowledge')], [{ requirement: 5000 }]),
