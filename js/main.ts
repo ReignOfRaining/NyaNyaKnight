@@ -2468,34 +2468,24 @@ gameData.requirements = {
         [document.getElementById('rebirthTabButton')],
         [{ requirement: 25 }],
     ),
-    'Rebirth note 1': new AgeRequirement(
-        [document.getElementById('rebirthNote1')],
-        [{ requirement: 45 }],
-    ),
-    'Rebirth note 2': new AgeRequirement(
-        [document.getElementById('rebirthNote2')],
-        [{ requirement: 65 }],
-    ),
-    'Rebirth note 3': new AgeRequirement(
-        [document.getElementById('rebirthNote3')],
-        [{ requirement: 200 }],
-    ),
-    'Rebirth note 4': new AgeRequirement(
-        [document.getElementById('rebirthNote4')],
-        [{ requirement: 1000 }],
-    ),
-    'Rebirth note 4': new AgeRequirement(
-        [document.getElementById('rebirthNote4')],
-        [{ requirement: 1000 }],
-    ),
-    'Rebirth note 5': new AgeRequirement(
-        [document.getElementById('rebirthNote5')],
-        [{ requirement: 10000 }],
-    ),
-    'Rebirth note 6': new TaskRequirement(
-        [document.getElementById('rebirthNote6')],
-        [{ task: 'Eternal Recollection', requirement: 1 }],
-    ),
+    'Rebirth note 1': new AgeRequirement(getElementsByClass('rebirthNote1'), [
+        { requirement: 45 },
+    ]),
+    'Rebirth note 2': new AgeRequirement(getElementsByClass('rebirthNote2'), [
+        { requirement: 65 },
+    ]),
+    'Rebirth note 3': new AgeRequirement(getElementsByClass('rebirthNote3'), [
+        { requirement: 200 },
+    ]),
+    'Rebirth note 4': new AgeRequirement(getElementsByClass('rebirthNote4'), [
+        { requirement: 1000 },
+    ]),
+    'Rebirth note 5': new AgeRequirement(getElementsByClass('rebirthNote5'), [
+        { requirement: 10000 },
+    ]),
+    'Rebirth note 6': new TaskRequirement(getElementsByClass('rebirthNote6'), [
+        { task: 'Eternal Recollection', requirement: 1 },
+    ]),
     'Evil info': new EvilRequirement(
         [document.getElementById('evilInfo')],
         [{ requirement: 1 }],
