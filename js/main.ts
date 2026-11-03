@@ -2391,10 +2391,8 @@ window.addEventListener('keydown', function (e) {
     checkbox.classList.add('inline');
     checkbox.id = 'autoPause';
     span.append(checkbox);
-    document
-        .querySelector('span#automation')
-        .prepend(document.createElement('br'));
-    document.querySelector('span#automation').prepend(span);
+    document.querySelector('#automation').prepend(document.createElement('br'));
+    document.querySelector('#automation').prepend(span);
     increaseDays = () => {
         var increase = applySpeed(1);
         var autoPause = document.getElementById('autoPause').checked;
