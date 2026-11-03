@@ -432,8 +432,8 @@ const skillBaseData = {
         effect: -0.01,
         description: 'Reduced Expenses',
     },
-    'Unworldly Adorablness': {
-        name: 'Unworldly Adorablness',
+    'Divine Adorablness': {
+        name: 'Divine Adorablness',
         maxXp: 100,
         effect: 0.01,
         description: 'All XP',
@@ -732,7 +732,7 @@ const skillCategories = {
         'Adorable Allure',
         'Fluff Ascension',
         'Weaponized Cuteness',
-        'Unworldly Adorablness',
+        'Divine Adorablness',
         'Sacred Plushie Ritual',
         'Midas Paw',
         'Sacred Knowledge',
@@ -947,7 +947,7 @@ const tooltips = {
         'Use magic to make your fur impossibly soft and fluffy, increasing the cuteness you retain between rebirths.',
     'Weaponized Cuteness':
         'Unleash an overwhelmingly adorable aura that leaves merchants unable to resist giving you generous discounts.',
-    'Unworldly Adorablness':
+    'Divine Adorablness':
         'Your ordinary catgirl body can no longer contain your adorable potential. Transform into something beyond imagination, gaining additional experience for all your skills.',
     'Sacred Plushie Ritual':
         'Perform an ancient ritual with your beloved plushies, harnessing their mysterious energy to gain more cuteness between rebirths.',
@@ -1126,7 +1126,7 @@ function addMultipliers() {
         task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task));
         task.xpMultipliers.push(getHappiness);
         task.xpMultipliers.push(getBindedTaskEffect('Adorable Allure'));
-        task.xpMultipliers.push(getBindedTaskEffect('Unworldly Adorablness'));
+        task.xpMultipliers.push(getBindedTaskEffect('Divine Adorablness'));
         task.xpMultipliers.push(getBindedTaskEffect('Celestial Influence'));
         task.xpMultipliers.push(getBindedTaskEffect('Parallel Universe'));
 
@@ -2857,8 +2857,8 @@ gameData.requirements = {
         [getTaskElement('Weaponized Cuteness')],
         [{ requirement: 1 }],
     ),
-    'Unworldly Adorablness': new EvilRequirement(
-        [getTaskElement('Unworldly Adorablness')],
+    'Divine Adorablness': new EvilRequirement(
+        [getTaskElement('Divine Adorablness')],
         [{ requirement: 20 }],
     ),
     'Sacred Plushie Ritual': new EvilRequirement(
