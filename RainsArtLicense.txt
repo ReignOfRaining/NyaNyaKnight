@@ -1,0 +1,11 @@
+The image file img/rain.png & img/logos.png, including the associated project logo and branding artwork, is expressly excluded from the project's public-domain dedication and all other open-source or public-domain licensing terms.
+
+All rights reserved.
+
+No permission is granted to copy, reproduce, redistribute, modify, adapt, publish, or use this logo, in whole or in part, without prior written permission from the copyright holder.
+
+This restriction applies to personal, commercial, educational, and other uses.
+
+The project's public-domain dedication applies to the other project materials only and does not extend to this logo.
+
+For permission to use the logo, contact: rainofraining@gmail.com.

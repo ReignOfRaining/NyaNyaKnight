@@ -4,9 +4,31 @@
 //
 // uh just a heads up, I kinda don't know what I am doing or what I am messing with so keep that in mind~ :3
 // Test
+type GameData = {
+    taskData: Record<TaskName, TaskProperties>;
+    itemData: unknown;
 
-var gameData = {
-    taskData: {},
+    coins: number;
+    days: number;
+    evil: number;
+    essence: number;
+    paused: boolean;
+    timeWarpingEnabled: boolean;
+    rebirthOneCount: number;
+    rebirthTwoCount: number;
+    rebirthThreeCount: number;
+    currentJob: string | null;
+    currentSkill: string | null;
+    currentProperty: string | null;
+    currentMisc: string | null;
+    settings: Settings;
+};
+type Settings = {
+    stickySidebar: boolean;
+};
+
+var gameData: GameData = {
+    taskData: {} as Record<TaskName, TaskProperties>,
     itemData: {},
 
     coins: 0,
@@ -1102,7 +1124,7 @@ const units = [
 
 const jobTabButton = document.getElementById('jobTabButton');
 
-function getBaseLog(x, y) {
+function getBaseLog(x: number, y: number): number {
     return Math.log(y) / Math.log(x);
 }
 
@@ -1423,9 +1445,9 @@ function setTab(element, selectedTab) {
 
     var tabButtons = document.getElementsByClassName('tabButton');
     for (let tabButton of tabButtons) {
-        tabButton.classList.remove('w3-blue-gray');
+        tabButton.classList.remove('w3-indigo');
     }
-    element.classList.add('w3-blue-gray');
+    element.classList.add('w3-indigo');
 }
 
 function setPause() {
@@ -2135,6 +2157,7 @@ function getLifespan() {
 function isAlive() {
     var condition = gameData.days < getLifespan();
     var deathText = document.getElementById('deathText');
+    if (deathText === null) throw new Error('Cannot find Death Text Element');
     if (!condition) {
         gameData.days = getLifespan();
         deathText.classList.remove('hidden');
@@ -2380,33 +2403,66 @@ window.addEventListener('keydown', function (e) {
             !document.getElementById('autoPromote').checked;
 });
 // This is the auto-pause function. I want to tinker with this more in the future.
-(function () {
-    let span = document.createElement('span');
-    let div = document.createElement('div');
-    div.classList.add('inline');
-    div.textContent = 'Auto-pause(Void)';
-    span.append(div);
-    let checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.classList.add('inline');
-    checkbox.id = 'autoPause';
-    span.append(checkbox);
-    document.querySelector('#automation').prepend(document.createElement('br'));
-    document.querySelector('#automation').prepend(span);
-    increaseDays = () => {
-        var increase = applySpeed(1);
-        var autoPause = document.getElementById('autoPause').checked;
+increaseDays = () => {
+    var increase = applySpeed(1);
+    var autoPause = document.getElementById('autoPause').checked;
+    var autoBuy = document.getElementById('autoBuy').checked;
+
+    if (autoBuy && !gameData.paused) {
+        doAutoBuy();
+    }
+    const m200Years = 73000;
+    const m1000Years = 365000;
+    const m10000Years = 3650000;
+    const m20000Years = 7300000;
+
+    if (autoPause && !gameData.paused) {
         if (
-            gameData.days < 365000 &&
-            gameData.days + increase > 365000 &&
-            autoPause
+            (gameData.days < m200Years &&
+                gameData.days + increase >= m200Years) ||
+            (gameData.days < m1000Years &&
+                gameData.days + increase >= m1000Years) ||
+            (gameData.days < m10000Years &&
+                gameData.days + increase >= m10000Years) ||
+            (gameData.days < m20000Years &&
+                gameData.days + increase >= m20000Years)
         ) {
             gameData.paused = true;
         }
-        gameData.days += increase;
-    };
-})();
-
+    }
+    gameData.days += increase;
+};
+function doAutoBuy() {
+    if (typeof getIncome === 'function' && typeof getExpense === 'function') {
+        if (getIncome() - getExpense() <= 0) {
+            return;
+        }
+    }
+    for (const key in itemBaseData) {
+        let item = gameData.itemData[key];
+        if (!item) continue;
+        let alreadyOwned = gameData.currentMisc.some(
+            (misc) => misc.name === key,
+        );
+        let cost = item.getExpense() * 100;
+        let itemExpense = item.getExpense();
+        let hasEnoughCoins = gameData.coins >= cost + itemExpense * 5;
+        let netIncomeSafe = true;
+        if (
+            typeof getIncome === 'function' &&
+            typeof getExpense === 'function'
+        ) {
+            netIncomeSafe = getIncome() - (getExpense() + itemExpense) > 0;
+        }
+        if (!alreadyOwned && hasEnoughCoins && netIncomeSafe) {
+            gameData.currentMisc.push(item);
+            if (typeof updateUI === 'function') {
+                updateUI();
+            }
+            return;
+        }
+    }
+}
 //Init
 // What I think it does is check that you met the requirements to
 // upgrade to another class or make progress. I'm still figuring it out myself...
