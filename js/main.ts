@@ -830,20 +830,20 @@ const itemCategories = {
 // On a serious note, if you don't write the hex in properly you will break the header color and it will display nothing~ :3
 
 const headerRowColors = {
-    'Catgirl Work': 'rgb(228, 162, 236)',
-    'The Mewarine Corps': 'rgb(204, 16, 31)',
-    'Meowgic Arcanium': 'rgb(28, 191, 255)',
+    'Catgirl Work': '#A785D1',
+    'The Mewarine Corps': '#7d1b20',
+    'Meowgic Arcanium': '#1C71D8',
     'Prismatic Realm': 'rgb(118, 43, 145)',
-    'Galactic Council': 'rgb(213, 192, 16)',
-    'Catgirl Fundmentals': 'rgb(228, 162, 236)',
-    'Combat': 'rgb(204, 16, 31)',
-    'Catgirl Magic': 'rgb(28, 191, 255)',
-    'Cutie Magic': 'rgb(179, 124, 209)',
+    'Galactic Council': '#F5C211',
+    'Catgirl Fundmentals': '#A785D1',
+    'Combat': '#7d1b20',
+    'Catgirl Magic': '#1C71D8',
+    'Cutie Magic': '#C061CB',
     'Almightiness': 'rgb(24, 210, 217)',
     'Prismatic Power': 'rgb(118, 43, 145)',
-    'Celestial Powers': 'rgb(213, 192, 16)',
-    'Properties': 'rgb(33, 158, 188)',
-    'Items': 'rgb(127, 134, 0)',
+    'Celestial Powers': '#F5C211',
+    'Properties': '#26A269',
+    'Items': '#b9930c',
 };
 // When you over your mouse over the different classes and items in the game this little word bubble will pop up.
 // This is where you modify those messages on screen. Have with it. I certainly did~ :3
@@ -1123,6 +1123,7 @@ const units = [
 ];
 
 const jobTabButton = document.getElementById('jobTabButton');
+const infoTabButton = document.getElementById('infoTabButton');
 
 function getBaseLog(x: number, y: number): number {
     return Math.log(y) / Math.log(x);
@@ -1445,9 +1446,9 @@ function setTab(element, selectedTab) {
 
     var tabButtons = document.getElementsByClassName('tabButton');
     for (let tabButton of tabButtons) {
-        tabButton.classList.remove('w3-indigo');
+        tabButton.classList.remove('w3-dustypinkthingy');
     }
-    element.classList.add('w3-indigo');
+    element.classList.add('w3-dustypinkthingy');
 }
 
 function setPause() {

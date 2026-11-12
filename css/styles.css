@@ -13,7 +13,7 @@ td {
 }
 
 .current {
-    background-color: rgb(232, 144, 237) !important;
+    background-color: #A785D1 !important;
 }
 
 .progress-text {
@@ -33,7 +33,7 @@ td {
 
 .progress-fill {
     height: 30px;
-    background-color: rgb(91, 206, 250)
+    background-color: #62A0EA
 }
 
 .hidden {
@@ -78,7 +78,7 @@ button:focus {
     visibility: hidden;
     width: 650px;
     background-color: #1B1622;
-    color: #A5A4A6;
+    color: #DEDDDA;
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     text-align: center;
