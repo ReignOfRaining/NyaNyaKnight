@@ -1,2 +1,1 @@
-{"include":["js/**/*.ts"],"compilerOptions": {"sourceMap": true}}
-
+{ "include": ["js/**/*.ts"], "compilerOptions": { "sourceMap": true } }
