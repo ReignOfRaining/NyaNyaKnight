@@ -1123,7 +1123,6 @@ const units = [
 ];
 
 const jobTabButton = document.getElementById('jobTabButton');
-const infoTabButton = document.getElementById('infoTabButton');
 
 function getBaseLog(x: number, y: number): number {
     return Math.log(y) / Math.log(x);
