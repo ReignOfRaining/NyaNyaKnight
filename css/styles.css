@@ -13,7 +13,7 @@ td {
 }
 
 .current {
-    background-color: #A785D1 !important;
+    background-color: #a785d1 !important;
 }
 
 .progress-text {
@@ -21,7 +21,7 @@ td {
     top: 0px;
     bottom: 0px;
     padding: 5px;
-    color: white
+    color: white;
 }
 
 .progress-bar {
@@ -33,7 +33,7 @@ td {
 
 .progress-fill {
     height: 30px;
-    background-color: #62A0EA
+    background-color: #62a0ea;
 }
 
 .hidden {
@@ -73,12 +73,12 @@ button:focus {
     position: relative;
     display: inline-block;
 }
-  
+
 .tooltip .tooltipText {
     visibility: hidden;
     width: 650px;
-    background-color: #1B1622;
-    color: #DEDDDA;
+    background-color: #1b1622;
+    color: #deddda;
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
     text-align: center;
@@ -97,7 +97,7 @@ button:focus {
     opacity: 0;
     transition: opacity 1s;
 }
-  
+
 .tooltip:hover .tooltipText {
     visibility: visible;
     opacity: 0.9;
@@ -119,8 +119,8 @@ button:focus {
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
 }
 
 .slider:hover {
@@ -133,7 +133,7 @@ button:focus {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: #4caf50;
     cursor: pointer;
 }
 
@@ -141,7 +141,7 @@ button:focus {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: #4caf50;
     cursor: pointer;
 }
 
@@ -153,25 +153,25 @@ button:focus {
     background-color: white;
 }
 
-.small-margin  {
+.small-margin {
     margin-bottom: 2px;
 }
 
 .heading {
-  position: relative;
+    position: relative;
 }
 
 .header img {
-  position: static;
-  float: left;
-  width: 60px;
-  height: 60px;
+    position: static;
+    float: left;
+    width: 60px;
+    height: 60px;
 }
 
 .header h1 {
-  position: static;
-  top: 2px;
-  left: 10px;
+    position: static;
+    top: 2px;
+    left: 10px;
 }
 
 .row {
