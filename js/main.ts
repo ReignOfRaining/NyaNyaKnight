@@ -1728,8 +1728,8 @@ function updateTaskRows() {
     }
 }
 
-function setStickySidebar(sticky) {
-    gameData.settings.stickySidebar = sticky;
+function setStickySidebar(sticky: boolean) {
+    if (gameData.settings) gameData.settings.stickySidebar = sticky;
     settingsStickySidebar.checked = sticky;
     info.style.position = sticky ? 'sticky' : 'initial';
 }
