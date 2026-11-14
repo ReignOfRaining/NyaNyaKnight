@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,26 +7,26 @@
     <link rel="stylesheet" type="text/css" href="css/dark.css">
     <link rel="stylesheet" type="text/css" href="css/w3.css"> 
     <title>Nya Nya Knight~</title>
-<link rel="shortcut icon" href="img/logo.ico" />
+<link rel="icon" href="img/logo.ico">
 </head>
 <body id="body" class="dark">
         <div class="row" style="width: 1220px;">
-                <div id="info" class="w3-panel w3-charcoalthingy w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-darkpurplethingy w3-charcoalthingy w3-round-xxlarge" style="width: 300px; top: 5px;">
+                <div id="info" class="w3-panel w3-charcoalthingy w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-darkpurplethingy  w3-round-xxlarge" style="width: 300px; top: 5px;">
                     <div class="header center padding" style="color:#A785D1">
-                    <img src="img/logos.png" width="75px" height="75px" alt="logos" class="w3-image w3-round"/>
+                    <img src="img/logos.png" width="75" height="75" alt="logos" class="w3-image w3-round">
                     <h3>&nbsp;Nya Nya Knight~</h3>
                     </div>
-                    </br>
+                    <br>
                     <span id="deathText">
                         <div class="sidebar-element" style="font-size: large; color: #ED333B;">Your old age has finally caught up to you...</div>
                         <div class="sidebar-element w3-padding w3-leftbar w3-rightbar w3-bottombar w3-topbar w3-border-dustyredthingy w3-round-xxlarge" style="color: #F66151">You have reached the end of your life and begin to feel your purr pulse starting to fade. Quickly, use the <b>Coin of 9 Lives</b> before you pass away!</div>
                     </span>
-                </br>
+                <br>
                     <div class="" style="font-size: large">Age <span id="ageDisplay">18</span> Day <span id="dayDisplay">0</span></div>
                     <div class="sidebar-element" style="color: #62A0EA">Lifespan: <span id="lifespanDisplay">100</span> catgirl years</div>
                     
                     <button id="pauseButton" class="w3-button w3-dustypinkthingy w3-round-xxlarge button sidebar-element" onClick="setPause()">Pause</button>
-                </br>
+                <br>
                 <div id="automation" style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
                                 <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
                                     <span>Auto-Pause (Events):</span>
@@ -111,9 +112,9 @@
                     </span>
                     <span class="rebirthNote2">
                         <p>Quick Rebirth:</p>
-                        <button class="w3-button button w3-round-xlarge" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Paw the Heart~ <3</button>
+                        <button class="w3-button button w3-round-xlarge" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Paw the Heart~ &lt;3</button>
                     </span>
-                    <span class="rebirthNote3"">
+                    <span class="rebirthNote3">
                         <button class="w3-button button w3-round-xlarge" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Admit Cuteness~ :3</button>
                         <br>
                         <div style="font-size: normal; color:rgb(179, 124, 209)">
@@ -122,12 +123,12 @@
                 </div>
                 <div class="column">
                     <div class="w3-panel" style="width: 900px; height: 40px;">
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" id="info" onClick="setTab(this, 'play')">Info</div>
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Coin</div>
-                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" id="info" onClick="setTab(this, 'play')">Info</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" onClick="setTab(this, 'skills')">Abilities</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Coin</div>
+                        <div class="w3-bar-item w3-button w3-dustypinkthingy w3-round-xxlarge  tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
                     </div>
                     <div class="panel w3-margin-left w3-margin-top w3-padding w3-charcoalthingy w3-topbar w3-bottombar w3-rightbar w3-leftbar w3-border-darkpurplethingy w3-round-xxlarge" style="width: 900px; height: auto; float: right">
                         <template class="headerRowTaskTemplate">
@@ -174,7 +175,7 @@
                                 <td class="xpLeft">Xp left</td>
                                 <td class="maxLevel">Max level</td>
                                 <td class="skipSkill">
-                                    <input class="checkbox" type="checkbox"></input>
+                                    <input class="checkbox" type="checkbox">
                                 </td>
                             </tr>
                         </template>
@@ -207,7 +208,7 @@
                         <template class="requiredRowTemplate">
                             <td class="w3-text-lightpink" style="padding-left: 16px" colspan=5>
                                 Required: 
-                                <span class="value" colspan=5>
+                                <span class="value">
                                     <span class="levels"></span>
                                     <span class="coins">
                                         <span></span>
@@ -238,7 +239,7 @@
                         </div>
         
                         <div style="color: #E5A50A;" class="tab w3-serif" id="rebirth">
-                            <center><h2>The Mysterious Coin</h2></center>
+                            <h2 style="text-align: center;">The Mysterious Coin</h2>
                             <ul>
                                 <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-dustybluethingy w3-darkpurplethingy w3-round-xlarge padding">
                                     <li style="margin: 8px; color: #DEDDDA;">
@@ -259,7 +260,7 @@
                                     As you sit reflecting on your life, you suddenly feel something moving inside your purrrse. 
                                     Reaching inside, you retrieve the strange coin you found all those years ago, only to discover that it is shivering uncontrollably in your paw! 
                                     A few moments after you remove it from your purrrse, however, the shivering abruptly stops. 
-                                    Looking closer, you notice something you could swear wasn't there before: <b><i>a strange engraving of a heart in the center of the coin.</b></i>
+                                    Looking closer, you notice something you could swear wasn't there before: <b><i>a strange engraving of a heart in the center of the coin.</i></b>
                                     You turn it over in your paws, inspecting it from every angle, but find no explanation for this peculiar change. 
                                     Eventually, you tuck the coin away again, left wondering whether the engraving was always there or not...
                                     </li>
@@ -273,7 +274,7 @@
                                         Pulling out the coin, you watch in disbelief as the heart engraved upon its surface begins to stir, slowly coming to life. 
                                         A soft, otherworldly glow emanates from the heart as strange letters begin to appear upon the coin's surface, etching themselves into the metal one by one until the words "Coin of 9 Lives" are revealed.
                                         Although the sudden transformation initially frightens you, the heart's gentle warmth soon eases your fears, leaving you with the curious feeling that the coin has finally revealed a small part of its true nature. 
-                                        You cannot explain what you are witnessing, but one thing becomes increasingly clear: <b><i>this coin is no ordinary trinket.</b></i> 
+                                        You cannot explain what you are witnessing, but one thing becomes increasingly clear: <b><i>this coin is no ordinary trinket.</i></b> 
                                         For a fleeting moment, you feel as though the coin is trying to tell you something, though its meaning remains beyond your understanding. 
                                         With so few years still ahead of you, you consider pawing the heart to see what will happen...
                                     </div>
@@ -285,11 +286,12 @@
                                         What wonders might await you should you <b>choose to keep living?</b> 
                                         </span>
                                     </i>
-                                    </br>
-                                    <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Paw the Heart~ <3</button>
-                                    </br>
+                                    <br>
+                                    <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Paw the Heart~ &lt;3</button>
+                                    <br>
+                                    </li>
                                 </div>
-                                </li>
+                                
                                 <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-dustybluethingy w3-darkpurplethingy w3-round-xlarge padding rebirthNote3">
                                 <li style="margin: 8px; color: #DEDDDA;" class="rebirthNote3">
                                     <div style="margin-bottom: 8px;">
@@ -305,8 +307,8 @@
                                         <span style="color: rgb(244, 240, 245)">“Well then! Are you ready to admit you're cute?”</span>
                                         The question leaves you thoroughly bewildered. Admit I am cute? What in the world is that supposed to mean?
                                     </div>
-                                    <div
-                                    <i><i style="color: rgb(91, 206, 250)">
+                                    <div>
+                                    <i style="color: rgb(91, 206, 250)">
                                         Of course, accepting the offer will come at a cost. 
                                         <b>All your levels, coins, and even your maximum level will be reset completely.</b>
                                         You'll begin your next life from scratch, without any of the rebirth multipliers you've earned along the way.
@@ -318,10 +320,10 @@
                                         As the coin's heart pulses warmly in your paws, you can't shake the feeling that admitting you are cute might be about much more than simply learning a few new magic tricks...
                                         If you were able to discover this much after 200 years... what would you discover if you could reach 1000?
                                         </span>
-                                    </div
-                                    </br>
+                                    </div>
+                                    <br>
                                         <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Admit Cuteness~ :3</button>
-                                    </br>
+                                    <br>
                                 </li>
                                 </div>
                                 <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-dustybluethingy w3-darkpurplethingy w3-round-xlarge padding rebirthNote4">
@@ -365,7 +367,7 @@
                                         Perhaps, with every life you've lived, every skill you've mastered, and every time you've chosen to begin anew, the cracks have grown a little wider.
                                         And perhaps, one day, the shell will finally fall away should you continue to live and grow a little longer.
                                     </div>
-                                    <div><i><i style="color: rgb(91, 206, 250)">
+                                    <div><i style="color: rgb(91, 206, 250)">
                                         For the first time, you begin to glimpse a power that seems to transcend the limits of your countless mortal lives. The shell around your true self may still hold, but it can no longer keep everything hidden.
                                         Somewhere deep within you, something stirs in quiet anticipation.
                                         If this is merely the beginning of your awakening, what will emerge when you finally hatch? It make take 10,000 years of contemplation to find out...</i>
@@ -373,11 +375,11 @@
                                     <div>
                                     <br><i style="color: rgb(119, 83, 147)">
                                         You have unlocked <b>"Prismatic Realm"</b> class category along with <b>"Prismatic Power"</b> abilities.<br></i>
-                                    </i>
                                     </div>
+                                    </li>
                                 </div>
-                                </li>
-                                </br>
+                                
+                                <br>
                                 <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-dustybluethingy w3-darkpurplethingy w3-round-xlarge padding rebirthNote5">
                                 <li style="margin: 8px;" class="rebirthNote5">
                                     <div style="margin-bottom: 8px; color: #DEDDDA;">
@@ -440,10 +442,10 @@
                                         The coin's heart glows softly, and a final message appears in your mind.
                                         “The shell is nearly broken. The path is open. There is only one step left."
                                         </div>
-                                        <div><i><i style="color: rgb(91, 206, 250)">
+                                        <div><i style="color: rgb(91, 206, 250)">
                                         By choosing to Transcend, you will be reborn once more, losing all your coins, cuteness, and current levels. 
                                         But this time, your maximum level will not be erased. 
-                                        Instead, through the power of Eternal Recollection, your accumulated potential will be carried forward and multiplied by gaining 
+                                        Instead, through the power of Eternal Recollection, your accumulated potential will be carried forward and multiplied by gaining</i> 
                                         <i style="color: rgb(255, 204, 102)">
                                         <b> <span id="essenceGainDisplay"></span> essence </b>, 
                                         </i>
@@ -451,29 +453,28 @@
                                         The coin rests warmly in your paw. Somewhere deep within you, the last fragile pieces of your shell begin to give way.
                                         For ten thousand years, you have served the Divines.
                                         Now, at last, you have the opportunity to discover what lies beyond them.
-                                        </br>
+                                        <br>
                                         </div>
                                         <i style="color: rgb(200, 0, 0)">
                                         Transcend will only show up if you have the <b>Eternal Recollection</b> ability unlocked!
                                     </i> 
-                                    </i>
-                                         </br>
-                                    </i>
+                                    <br>
+                                    
                                 </li>
                                 <div style="margin: 8px; color: #DEDDDA;" class="rebirthNote6">
                                     <div style="margin-bottom: 8px;">
                                     <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthThree()"><i style="color: rgb(91, 206, 250)">T</i><i style="color: rgb(245, 169, 184)">r</i><i style="color: rgb(255, 255, 255)">a</i><i style="color: rgb(245, 169, 184)">n</i><i style="color: rgb(91, 206, 250)">s</i>cend</button>
-                                    </br>
+                                    <br>
                                     </div>
                                     </div>    
                                 </div>
                             </ul>
                         </div>
                         <div style="margin: 8px; color: #DEDDDA;" class="tab w3-serif" id="play">
-                            <center><h2>How to Play Nya Nya Knight~</h2></center>
+                            <h2 style="text-align: center;">How to Play Nya Nya Knight~</h2>
                             <div style="color: #DEDDDA;" class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-amber w3-charcoalthingy w3-round-xlarge w3-padding">
                             <h3>Introduction:</h3>
-                            <span style="color: #DEDDDA;">Nya Nya Knight is an incrimental progress game about becoming a legendary catgirl.
+                            <span style="color: #DEDDDA;">Nya Nya Knight is an incremental progress game about becoming a legendary catgirl.
                             Begin your life as a ordinary catgirl struggling to survive and grind your various skills
                             to see how far life can take you~ :3
                             </span>
@@ -483,7 +484,7 @@
                             <span style="color: #DEDDDA;">Classes can be selected by clicking on the Class Progress bar in the menu on top of the screen
                             and clicking on the specific class you want to train. You can automate this process by checking
                             auto promote and Nya Nya Knight will automatically take the next available class when she is ready
-                            to be promoted.
+                            to be promoted.</span>
                             <span style="color: #DEDDDA;">
                             Please note that Auto-Promote will only promote within the same class type. For example if you are currenty
                             training "Catgirl Work" you will only be able to progress to the top of the class tree. Be sure to check back often
@@ -496,6 +497,7 @@
                             on the top of the screen and clicking the progress bar you want to start training. Unlike with auto-promote, auto-learn will
                             train every skill regardless of class tree. If you have auto-learn selected you can use the "skip" check boxes to tell
                             Nya Nya Knight which skills to focus on. If all skipped skills are selected the game will train Mindfullness by default.
+                            </span>
                             </div>
                             <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-dustywhitethingy w3-charcoalthingy w3-round-xlarge w3-padding">
                             <h3>How to use the Shop:</h3>
@@ -529,7 +531,7 @@
                                 <div style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;"></div>
                                     <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
                                     <span>Check to Enable:</span>
-                                    <input type="checkbox" id="settingsStickySidebar" onclick="setStickySidebar(this.checked)" />
+                                    <input type="checkbox" id="settingsStickySidebar" onclick="setStickySidebar(this.checked)">
                                     </label>
                             <h5>Color Settings:</h5>
                             <div style="margin-left: 8px; display: flex; flex-direction: column; gap: 4px;">
@@ -537,7 +539,7 @@
                                 <span>Toggle Light/Dark Mode:</span>
                                 <button class="w3-button button" onClick="setLightDarkMode()">Toggle</button>
                                 </label>
-                                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer;">
+                                <label style="display: flex; align-items: center; justify-content: space-between; gap: 8px; cursor: pointer; margin-bottom: 8px;">
                                 <span>Color schemes are a work in progress. Please provide feedback~ :3</span>
                                 </label>
                         </div>
@@ -546,34 +548,34 @@
                         <h2>Shortcuts</h2>
                             <div style="margin-bottom: 8px;">
                                 Arrow Keys - Menu navigation
-								</br>
+								<br>
 								Spacebar - Pause
-								</br>
+								<br>
 								P - Auto-promote
-								</br>
+								<br>
 								L - Auto-learn
-                                </br>
+                                <br>
                                 Save profile with: Alt + "1-3" / Load profile with "1-3"							
                             </div>
                         </div>
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-green w3-charcoalthingy w3-round-xlarge">
                             <h2>Import/Export Save String:</h2>
                             <h5>Clicking Export will produce a string. Copy the string into a text editor and save it in a safe location.</h5>
-                            <h5>To load the game, paste the string into the field and click Import~ <3</h5>
+                            <h5>To load the game, paste the string into the field and click Import~ &lt;3</h5>
                             <button class="w3-button button" onClick="importGameData()">Import</button>
                             <button class="w3-button button" onClick="exportGameData()">Export</button>
-                                <form style="margin-top: 16px"> 
-                                    <input id="importExportBox" type="text" style="width:300px; height:30px"></input>
+                                <form style="margin: 16px"> 
+                                    <input id="importExportBox" type="text" style="width:300px; height:30px">
                                     </form>
                         </div>
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-cyan w3-charcoalthingy w3-round-xlarge">
-                            <h2>NyaNya Knight~ 1.0</h4>
-                            <h3>by Rain</h5>
+                            <h2>NyaNya Knight~ 1.0</h2>
+                            <h3>by Rain</h3>
                             <h5>This game was lovingly soft forked from Progress Knight 2.0</h5>
                             <h5></h5>
-                            <h2>About:</h5>
-                            <h5>NyaNya Knight is an incrimental progress game about becoming a legendary catgirl.</h5>
-                            <h5>Game is a work in progress. Expect many bugs~<3</h5>
+                            <h2>About:</h2>
+                            <h5>NyaNya Knight is an incremental progress game about becoming a legendary catgirl.</h5>
+                            <h5>Game is a work in progress. Expect many bugs~&lt;3</h5>
                             <h5></h5>
                             <h5>Sharing is an act of love! Fork this game and make it your own!</h5>
                             <h5><a href="https://github.com/ReignOfRaining/NyaNyaKnight">Github Repository</a></h5>
@@ -581,11 +583,11 @@
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-blue w3-charcoalthingy w3-round-xlarge">
                             <h2>Join the Rain's Refuge discord community!</h2>
                             <a href="https://discord.gg/5JNdxkwxnn" target="_blank">
-                            <img src="img/rain.png"  width="100" height="100"></img>
+                            <img src="img/rain.png"  width="100" height="100" alt="Rain's logo, it's a heart colored blue, pink and white to match the transgender flag. Overlayed on top of that is the Japanese kanji for rain.">
                             </a>
                             <h2>Join the Progress Knight discord community!</h2>
                             <a href="https://discord.gg/fTRS4pHGka" target="_blank">
-                            <img src="img/progressknight.png" width="100" height="100"></img>
+                            <img src="img/progressknight.png" width="100" height="100" alt="A logo, colored yellow, of a helmet worn by a medieval knight, looking to the right.">
                             </a>
                         </div>
                         <div class="w3-panel w3-topbar w3-bottombar w3-leftbar w3-rightbar w3-border-red w3-pale-red w3-round-xlarge">
@@ -598,8 +600,9 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
         </div>
-    </div>
 </body>
 
 <script type="text/javascript" src="js/HackTimer.js"></script>
