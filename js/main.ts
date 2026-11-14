@@ -1729,6 +1729,7 @@ function updateTaskRows() {
 }
 
 function setStickySidebar(sticky: boolean) {
+    let info = document.getElementById('info');
     if (gameData.settings) gameData.settings.stickySidebar = sticky;
     settingsStickySidebar.checked = sticky;
     info.style.position = sticky ? 'sticky' : 'initial';
