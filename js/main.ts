@@ -1739,23 +1739,34 @@ function updateItemRows() {
     for (let key in gameData.itemData) {
         var item = gameData.itemData[key];
         var row = document.getElementById('row ' + item.name);
+        if (!row) continue;
         var button = row.getElementsByClassName('button')[0];
-        button.disabled = gameData.coins < item.getExpense();
+        if (button) {
+            button.disabled = gameData.coins < item.getExpense();
+        }
         var active = row.getElementsByClassName('active')[0];
         var color = itemCategories['Properties'].includes(item.name)
             ? headerRowColors['Properties']
             : headerRowColors['Items'];
-        active.style.backgroundColor =
-            gameData.currentMisc.includes(item) ||
-            item == gameData.currentProperty
-                ? color
-                : 'white';
-        row.getElementsByClassName('effect')[0].textContent =
-            item.getEffectDescription();
-        formatCoins(
-            item.getExpense(),
-            row.getElementsByClassName('expense')[0],
-        );
+        var isProperty = itemCategories['Properties'].includes(item.name);
+        var shouldHighlight = false;
+
+        if (isProperty) {
+            shouldHighlight = item === gameData.currentProperty;
+        } else {
+            shouldHighlight = gameData.currentMisc.includes(item);
+        }
+        if (active) {
+            active.style.backgroundColor = shouldHighlight ? color : 'white';
+        }
+        var effectDesc = row.getElementsByClassName('effect')[0];
+        if (effectDesc) {
+            effectDesc.textContent = item.getEffectDescription();
+        }
+        var expenseElem = row.getElementsByClassName('expense')[0];
+        if (expenseElem) {
+            formatCoins(item.getExpense(), expenseElem);
+        }
     }
 }
 
